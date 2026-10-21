@@ -886,7 +886,9 @@ body { color: var(--ink); }
   .places-swipe-button { display: grid; place-items: center; width: 44px; height: 44px; padding: 0; border: 1px solid #8d9690; border-radius: 0; background: white; color: #111; font-size: 1.25rem; line-height: 1; transition: background-color .18s ease, border-color .18s ease; }
   .places-swipe-button:active { background: #e9eff0; }
   .places-swipe-button:disabled { color: #a2a8a4; border-color: #dce0dd; cursor: default; }
-  #places-track { display: flex; align-items: flex-start; gap: 14px; max-width: none; width: auto; margin: 0; padding: 4px 32px 14px 0; border: 0; overflow-x: auto; overflow-y: hidden; overscroll-behavior-x: contain; scroll-snap-type: x mandatory; scroll-padding-left: 0; scrollbar-width: thin; scrollbar-color: #bcc8c1 transparent; overflow-anchor: none; }
+  /* Ten cards may overflow this shelf, never its parent or the page. */
+  #places > .wrap { min-width: 0; }
+  #places-track { display: flex; align-items: flex-start; gap: 14px; min-width: 0; max-width: 100%; width: 100%; contain: inline-size; margin: 0; padding: 4px 32px 14px 0; border: 0; overflow-x: auto; overflow-y: hidden; overscroll-behavior-x: contain; scroll-snap-type: x mandatory; scroll-padding-left: 0; scrollbar-width: thin; scrollbar-color: #bcc8c1 transparent; overflow-anchor: none; }
   #places-track::-webkit-scrollbar { height: 4px; }
   #places-track::-webkit-scrollbar-thumb { background: #bcc8c1; }
   #places-track:focus-visible { outline: 2px solid #52788a; outline-offset: 5px; }
@@ -1518,7 +1520,10 @@ html.disclosure-moving, html.disclosure-moving body { overflow-anchor: none; scr
   <style>
 /* Quiet navigation and feedback, shared by the experience and author pages. */
 :root { --comfort-ink: #111; --comfort-paper: #f9f8f5; --comfort-accent: #52788a; }
-html { scroll-padding-top: clamp(84px, 10vh, 120px); }
+/* Keep wide artwork inside the page. Local scrollers remain independently usable.
+   clip preserves the vertical viewport scroll and sticky/parallax ancestors. */
+html { scroll-padding-top: clamp(84px, 10vh, 120px); overflow-x: hidden; }
+@supports (overflow: clip) { html { overflow-x: clip; } }
 .sr-only { position: absolute !important; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip-path: inset(50%); white-space: nowrap; border: 0; }
 .reading-tools { position: fixed; z-index: 18; right: max(22px, env(safe-area-inset-right)); bottom: max(22px, calc(env(safe-area-inset-bottom) + 14px)); opacity: 0; visibility: hidden; transform: translateY(6px); transition: opacity .22s ease, transform .22s ease, visibility .22s; pointer-events: none; }
 .reading-tools.is-visible { opacity: 1; visibility: visible; transform: none; pointer-events: auto; }
