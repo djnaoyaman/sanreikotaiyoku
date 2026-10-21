@@ -872,6 +872,46 @@ body { color: var(--ink); }
 .facility-directory > .facility-directory-note { font-size: .6875rem; color: #555; margin-block: 18px 24px; }
 .facility-share { display: block; font-size: .6875rem; margin-top: 16px; padding: 8px 0; min-height: 44px; text-decoration: underline; text-underline-offset: 4px; text-align: left; }
 
+/* The editorial grid becomes a touch-first shelf on small screens. */
+.places-swipe-toolbar, .places-swipe-progress { display: none; }
+.places-swipe-controls[hidden], .places-swipe-progress[hidden] { display: none !important; }
+@media (max-width:740px) {
+  .places-swipe-toolbar { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 10px 16px; margin: 0 0 15px; }
+  .places-swipe-hint { font-size: .6875rem; font-weight: 500; line-height: 1.8; letter-spacing: .02em; margin: 0; }
+  .places-swipe-hint > span { display: inline-block; margin-left: 5px; font-size: 1rem; }
+  .places-swipe-controls { display: flex; align-items: center; gap: 8px; margin-left: auto; }
+  .places-swipe-count { margin: 0 6px 0 0; font: 500 .75rem/1 var(--font-latin); white-space: nowrap; font-variant-numeric: tabular-nums; }
+  .places-swipe-count > span:first-child { font-size: 1.125rem; }
+  .places-swipe-count > span:last-child { color: #646b68; }
+  .places-swipe-button { display: grid; place-items: center; width: 44px; height: 44px; padding: 0; border: 1px solid #8d9690; border-radius: 0; background: white; color: #111; font-size: 1.25rem; line-height: 1; transition: background-color .18s ease, border-color .18s ease; }
+  .places-swipe-button:active { background: #e9eff0; }
+  .places-swipe-button:disabled { color: #a2a8a4; border-color: #dce0dd; cursor: default; }
+  #places-track { display: flex; align-items: flex-start; gap: 14px; max-width: none; width: auto; margin: 0; padding: 4px 32px 14px 0; border: 0; overflow-x: auto; overflow-y: hidden; overscroll-behavior-x: contain; scroll-snap-type: x mandatory; scroll-padding-left: 0; scrollbar-width: thin; scrollbar-color: #bcc8c1 transparent; overflow-anchor: none; }
+  #places-track::-webkit-scrollbar { height: 4px; }
+  #places-track::-webkit-scrollbar-thumb { background: #bcc8c1; }
+  #places-track:focus-visible { outline: 2px solid #52788a; outline-offset: 5px; }
+  #places-track > .place { flex: 0 0 100%; width: 100%; min-width: 0; align-self: flex-start; border: 1px solid #111; padding: 26px 22px; scroll-snap-align: start; scroll-snap-stop: always; }
+  #places-track > .place.motion-reveal { opacity: 1; transform: none; animation: none; }
+  #places-track > .place .place-top { margin-bottom: 24px; }
+  #places-track > .place h3 { font-size: clamp(1.5rem,7vw,2.35rem); }
+  #places-track > .place .place-caption { font-size: clamp(1.125rem,5.5vw,1.625rem); }
+  #places-track > .place .place-caption br { display: none; }
+  #places-track > .place .place-evidence { margin-bottom: 22px; }
+  .places-swipe-progress { display: block; height: 2px; background: #e1e7e3; margin: 16px 0 34px; overflow: hidden; }
+  .places-swipe-progress > span { display: block; width: 100%; height: 100%; background: #465f51; transform: scaleX(.1); transform-origin: left; transition: transform .22s ease; }
+}
+@media (max-width:359px) {
+  #places-track { padding-right: 24px; gap: 12px; }
+  #places-track > .place { padding-inline: 18px; }
+}
+@media (prefers-reduced-motion:reduce) { .places-swipe-button, .places-swipe-progress > span { transition: none; } }
+html[data-motion='paused'] .places-swipe-button, html[data-motion='paused'] .places-swipe-progress > span { transition: none; }
+@media print {
+  .places-swipe-toolbar, .places-swipe-progress { display: none !important; }
+  #places-track { display: block; overflow: visible; height: auto !important; padding: 0; }
+  #places-track > .place { break-inside: avoid; width: 100%; margin-bottom: 20px; }
+}
+
 </style>
   <style>
 /* Full-bleed camera movement, with enough overscan to keep every edge covered. */
@@ -1206,6 +1246,7 @@ html.disclosure-moving, html.disclosure-moving body { overflow-anchor: none; scr
 .gentle-disclosure > summary > .expand { margin-top: 0; transform: translateY(-50%); }
 
 </style>
+
 
 
   <script type="application/ld+json">
@@ -1656,9 +1697,9 @@ summary { min-height: 44px; }
         <article class="hall-card" id="hall-yuiru"><div class="hall-meta"><span>殿堂入り</span><span>神奈川県・川崎市</span></div><p class="hall-role">体感の、はじまりの地。</p><h4><small>朝日湯源泉</small>ゆいる</h4><p>琥珀色をした、<br><strong>超高濃度の不感強炭酸泉。</strong></p><p class="small">公式案内では、約30℃・炭酸濃度1,500ppm以上。</p><p>湯気文吾が「酸冷交代浴」の感触に、<br>初めて出会った場所。</p><a class="official-link" data-track="facility_click" data-facility-id="yuiru" data-placement="hall_of_fame" href="https://yuiru.net/spa/" target="_blank" rel="noopener noreferrer">ゆいる 公式サイト <span aria-hidden="true">↗</span></a><aside class="after-bath" aria-labelledby="after-yuiru"><p class="after-bath-by">湯気文吾のおすすめ</p><h5 id="after-yuiru">風呂のあとに、もうひとつ。</h5><p><strong>すくい麻婆豆腐と、スパイスカレー。</strong><br>ゆいるで私がすすめたいサ飯は、このふたつ。お湯を楽しんだあとは、おいしい時間まで。</p><a class="after-bath-link" href="https://yuiru.net/restaurant/" target="_blank" rel="noopener noreferrer">ゆいるのお食事を見る ↗</a></aside></article>
       </div>
       <p class="hall-note">殿堂入りと風呂あがりのおすすめは、湯気文吾自身の体験に基づくものです。水分をとって、ひと休みしてから。営業日・提供メニューは各店の最新案内をご確認ください。</p>
-      <div class="ten-heading"><p class="latin-label">THE SELECTED 10</p><h3>炭酸泉を目当てにしたい、<br>全国の10選。</h3><p>泡付き。ぬるめの心地よさ。また入りたい、という声。<br>炭酸泉そのものへの好評と、サウナ・水風呂の設備を手がかりに選びました。</p></div>
+      <div class="ten-heading"><p class="latin-label">THE SELECTED 10</p><h3 id="selected-places-title">炭酸泉を目当てにしたい、<br>全国の10選。</h3><p>泡付き。ぬるめの心地よさ。また入りたい、という声。<br>炭酸泉そのものへの好評と、サウナ・水風呂の設備を手がかりに選びました。</p></div>
       <p class="places-method">全口コミの言及率を集計したランキングではありません。番号は北から南への掲載順です。口コミの投稿日・選定理由は各施設の「選定の根拠を読む」で確認できます。</p>
-      <div class="place-grid"><article class="place" id="place-biratori" aria-labelledby="place-title-biratori">
+      <!-- FACILITY_CARDS --><div class="places-swipe-toolbar"><p class="places-swipe-hint" id="places-swipe-hint">左右にスワイプして、次のお湯へ <span aria-hidden="true">↔</span></p><div class="places-swipe-controls" hidden><p class="places-swipe-count" aria-hidden="true"><span data-place-count>01</span><span> / 10</span></p><button type="button" class="places-swipe-button" data-place-prev aria-label="前の施設へ" aria-controls="places-track" disabled><span aria-hidden="true">←</span></button><button type="button" class="places-swipe-button" data-place-next aria-label="次の施設へ" aria-controls="places-track"><span aria-hidden="true">→</span></button><p class="sr-only" data-place-status role="status" aria-live="polite" aria-atomic="true"></p></div></div><div class="place-grid" id="places-track"><article class="place" id="place-biratori" aria-labelledby="place-title-biratori">
 <div class="place-top"><span>北海道・平取町</span><span class="place-index" aria-hidden="true">01</span></div>
 <h3 id="place-title-biratori"><small>びらとり温泉</small>ゆから</h3><p class="place-caption">炭酸の存在感を、<br>旅の記憶に。</p>
 <p class="place-focus"><span>口コミの着眼点</span>炭酸の強さへの声</p>
@@ -1708,7 +1749,7 @@ summary { min-height: 44px; }
 <h3 id="place-title-shingu"><small>新宮温泉</small>ふくの湯</h3><p class="place-caption">露天でも、内湯でも。<br>炭酸泉を選べる。</p>
 <p class="place-focus"><span>口コミの着眼点</span>泡の刺激・ぬるめへの声</p>
 <details class="place-evidence"><summary>選定の根拠を読む <span aria-hidden="true">＋</span></summary><p class="place-description">露天の泡の刺激や、ほどよくぬるい炭酸泉を心地よいとする声。内湯と露天の炭酸泉に、水風呂・サウナがそろいます。</p><ul><li><p>露天炭酸泉で感じた泡の刺激と、心地よさを評価。</p><a href="https://ameblo.jp/saunisuto/entry-12484250695.html" target="_blank" rel="noopener noreferrer" >利用者の訪問記 ↗</a><small>2019年・開業直後の訪問記 · モヒカンサウニスト</small></li><li><p>炭酸泉のほどよいぬるさと、入浴の心地よさを評価。</p><a href="https://www.supersento.com/kyusyu/fukuoka/fukunoyu_shingu.html" target="_blank" rel="noopener noreferrer" >スーパー銭湯全国検索・読者口コミ ↗</a><small>2020-03-10 · はな</small></li></ul><p class="place-caveat">根拠にした訪問記・口コミは2019〜2020年。現設備は公式案内を参照。</p></details>
-<div class="place-links"><a href="https://www.fukunoyu.com/shingu/bath/" target="_blank" rel="noopener noreferrer" data-track="facility_click" data-facility-id="shingu" data-placement="facility_card" class="official-link">お風呂の公式案内 <span aria-hidden="true">↗</span></a><button class="facility-share" type="button" data-share data-placement="facility_card" data-share-target="place-shingu" data-share-name="新宮温泉 ふくの湯" hidden>この施設を友だちに送る ↗</button></div></article></div>
+<div class="place-links"><a href="https://www.fukunoyu.com/shingu/bath/" target="_blank" rel="noopener noreferrer" data-track="facility_click" data-facility-id="shingu" data-placement="facility_card" class="official-link">お風呂の公式案内 <span aria-hidden="true">↗</span></a><button class="facility-share" type="button" data-share data-placement="facility_card" data-share-target="place-shingu" data-share-name="新宮温泉 ふくの湯" hidden>この施設を友だちに送る ↗</button></div></article></div><div class="places-swipe-progress" aria-hidden="true" hidden><span></span></div><!-- /FACILITY_CARDS -->
       <details class="selection-note"><summary>10施設の選び方と、調査の限界 <span aria-hidden="true">＋</span></summary>
         <p>全国の公開口コミを探索し、炭酸泉自体の泡付き・強さの印象・温度・心地よさに好意的な言及があり、炭酸泉・水風呂・サウナを備える施設を選びました。施設全体の星評価を、そのまま炭酸泉の評価には置き換えていません。別の投稿者名義による声を複数確認していますが、投稿者の独立性や投稿の動機まで保証するものではありません。</p>
         <p>「炭酸泉」といった言葉で探した口コミには検索上の偏りがあります。施設ごとに同じ期間・同じ件数の全投稿を集計できていないため、全国の口コミに占める好評の割合や、1位から10位の統計的順位は示していません。本サイトの視点による推奨10選です。</p>
@@ -1930,6 +1971,7 @@ function revealTarget(hash) {
     }
     ancestor = ancestor.parentElement;
   }
+  window.sanreiRevealPlace?.(target);
   return target;
 }
 window.sanreiRevealTarget = revealTarget;
@@ -2248,6 +2290,103 @@ window.addEventListener('resize', settleDisclosures, { passive: true });
 motion.addEventListener('change', settleDisclosures);
 motionButtons.forEach(button => button.addEventListener('click', settleDisclosures));
 document.addEventListener('visibilitychange', () => { if (document.hidden) settleDisclosures(); });
+
+/* Native horizontal scrolling: vertical page scrolling and pinch zoom stay native. */
+(() => {
+  const track = document.getElementById('places-track');
+  if (!track) return;
+  const cards = [...track.querySelectorAll(':scope > .place')];
+  const controls = document.querySelector('.places-swipe-controls');
+  if (!cards.length || !controls) return;
+  const previous = controls.querySelector('[data-place-prev]');
+  const next = controls.querySelector('[data-place-next]');
+  const count = controls.querySelector('[data-place-count]');
+  const status = controls.querySelector('[data-place-status]');
+  const progress = document.querySelector('.places-swipe-progress');
+  const small = matchMedia('(max-width: 740px)');
+  const reduced = matchMedia('(prefers-reduced-motion: reduce)');
+  let current = 0, intended = null, settleTimer, framePending = false, trackWidth = 0;
+  const smooth = () => !reduced.matches && document.documentElement.dataset.motion !== 'paused';
+  const nameOf = i => cards[i].querySelector('h3').textContent.replace(/\s+/g, ' ').trim();
+  const startOf = i => Math.max(0, track.scrollLeft + cards[i].getBoundingClientRect().left - track.getBoundingClientRect().left);
+  function nearest() {
+    const left = track.getBoundingClientRect().left;
+    let best = 0, distance = Infinity;
+    cards.forEach((card,i) => { const value = Math.abs(card.getBoundingClientRect().left-left); if(value<distance){best=i;distance=value;} });
+    return best;
+  }
+  function fitHeight() {
+    if (!small.matches) return;
+    const css = getComputedStyle(track);
+    const extra = (parseFloat(css.paddingTop)||0) + (parseFloat(css.paddingBottom)||0) + Math.max(0,track.offsetHeight-track.clientHeight);
+    const height = Math.ceil(cards[current].getBoundingClientRect().height + extra);
+    if(height>extra) track.style.height = height+'px';
+  }
+  function update(announce=false) {
+    count.textContent=String(current+1).padStart(2,'0');
+    previous.disabled=current===0; next.disabled=current===cards.length-1;
+    previous.setAttribute('aria-label',current>0?'前の施設へ · '+nameOf(current-1):'前の施設へ');
+    next.setAttribute('aria-label',current<cards.length-1?'次の施設へ · '+nameOf(current+1):'次の施設へ');
+    progress.querySelector('span').style.transform=`scaleX(${(current+1)/cards.length})`;
+    if(announce)status.textContent=`${current+1} / ${cards.length}施設 · ${nameOf(current)}`;
+  }
+  function settle(announce=true) {
+    clearTimeout(settleTimer); intended=null; current=nearest(); update(announce); fitHeight();
+  }
+  function move(index, animate=true, announce=true) {
+    if(!small.matches)return;
+    current=Math.max(0,Math.min(cards.length-1,index));intended=current;
+    update(announce);fitHeight();
+    track.scrollTo({left:startOf(current),behavior:animate&&smooth()?'smooth':'instant'});
+    clearTimeout(settleTimer);settleTimer=setTimeout(()=>settle(false),animate&&smooth()?450:0);
+  }
+  previous.addEventListener('click',()=>move((intended??current)-1));
+  next.addEventListener('click',()=>move((intended??current)+1));
+  track.addEventListener('keydown',event=>{
+    if(!small.matches||event.target!==track||event.altKey||event.ctrlKey||event.metaKey||event.shiftKey)return;
+    const targets={ArrowLeft:(intended??current)-1,ArrowRight:(intended??current)+1,Home:0,End:cards.length-1};
+    if(!Object.hasOwn(targets,event.key))return;
+    event.preventDefault();move(targets[event.key]);
+  });
+  track.addEventListener('scroll',()=>{
+    if(!small.matches)return;
+    if(!framePending){framePending=true;requestAnimationFrame(()=>{framePending=false;if(intended===null){current=nearest();update(false);}});}
+    clearTimeout(settleTimer);settleTimer=setTimeout(()=>settle(),160);
+  },{passive:true});
+  track.addEventListener('pointerdown',()=>{intended=null;}, {passive:true});
+  track.addEventListener('focusin',event=>{
+    const card=event.target.closest('.place');const index=cards.indexOf(card);
+    if(index>=0&&small.matches)move(index,false,false);
+  });
+  cards.forEach(card=>card.querySelectorAll('details').forEach(detail=>detail.addEventListener('toggle',()=>{
+    if(small.matches&&card===cards[current])fitHeight();
+  })));
+  window.sanreiRevealPlace = target => {
+    const card=target?.closest?.('#places-track > .place');const index=cards.indexOf(card);
+    if(index>=0){if(small.matches)move(index,false,false);else current=index;}
+  };
+  function revealHash() {
+    try { const target=document.getElementById(decodeURIComponent(location.hash.slice(1)));if(target)window.sanreiRevealPlace(target); } catch(_){}
+  }
+  function layout() {
+    controls.hidden=!small.matches;progress.hidden=!small.matches;trackWidth=track.clientWidth;
+    if(small.matches){
+      track.setAttribute('tabindex','0');track.setAttribute('role','region');track.setAttribute('aria-roledescription','カルーセル');track.setAttribute('aria-labelledby','selected-places-title');track.setAttribute('aria-describedby','places-swipe-hint');
+      move(current,false,false);
+    }else{
+      clearTimeout(settleTimer);intended=null;track.style.removeProperty('height');
+      ['tabindex','role','aria-roledescription','aria-labelledby','aria-describedby'].forEach(attr=>track.removeAttribute(attr));
+      track.scrollTo({left:0,behavior:'instant'});
+    }
+  }
+  small.addEventListener('change',layout);
+  window.addEventListener('hashchange',revealHash);
+  window.addEventListener('resize',()=>{if(small.matches&&track.clientWidth!==trackWidth){trackWidth=track.clientWidth;move(current,false,false);}},{passive:true});
+  window.addEventListener('pageshow',layout);
+  if('ResizeObserver' in window){const observer=new ResizeObserver(()=>{if(small.matches)fitHeight();});cards.forEach(card=>observer.observe(card));}
+  document.fonts?.ready.then(()=>{if(small.matches)fitHeight();});
+  layout();revealHash();
+})();
 
 </script>
 <script>
