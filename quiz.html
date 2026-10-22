@@ -211,7 +211,13 @@ summary { min-height: 44px; }
     if (!result.answered) return '';
     return `温浴・サウナの100問、${result.complete ? result.total + '問コース完走' : '途中結果'}。${result.answered}問に答えて${result.correct}問正解（正答率${Math.round(result.rate * 10) / 10}％）。称号は「${result.title}」！\n知るほど、次のお風呂がおもしろくなる。 #酸冷交代浴 #湯けむりクイズ`;
   }
-  return { VERSION, titles, create, answer, score, restore, shareText };
+  function shareURL(result) {
+    const base = 'https://djnaoyaman.github.io/sanreikotaiyoku/';
+    return result?.answered > 0 && Number.isInteger(result.level) && result.level >= 0 && result.level < titles.length
+      ? base + 'quiz-results/' + String(result.level + 1).padStart(2, '0') + '.html'
+      : base + 'quiz.html';
+  }
+  return { VERSION, titles, create, answer, score, restore, shareText, shareURL };
 });
 
 </script>
@@ -225,7 +231,7 @@ window.SANREI_LEARN = {"questions": [{"id": "heat-01", "category": "heat", "ques
   const core = window.SanreiQuiz, data = window.SANREI_LEARN;
   if (!core || !data?.questions || data.questions.length !== 100) return;
   const bank = data.questions, questions = new Map(bank.map(q=>[q.id,q])), sources = new Map(data.sources.map(s=>[s.id,s]));
-  const key = 'sanrei-quiz-progress-v1', URL = 'https://djnaoyaman.github.io/sanreikotaiyoku/quiz.html';
+  const key = 'sanrei-quiz-progress-v1';
   const $ = id => document.getElementById(id);
   const escape = s => String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
   const refs = ids => '<ul class="source-links">'+ids.map(id=>`<li><a href="guide.html#${escape(id)}" target="_blank" rel="noopener noreferrer">${escape(sources.get(id).organization.split('／')[0].split(' / ')[0])} · 根拠を読む ↗<span class="sr-only">（新しいタブで開きます）</span></a></li>`).join('')+'</ul>';
@@ -266,7 +272,7 @@ window.SANREI_LEARN = {"questions": [{"id": "heat-01", "category": "heat", "ques
   function finish() {state.ended=true;save();renderResult();const s=core.score(state,bank);track('quiz_finish',{course:String(s.total),answered:String(s.answered),correct:String(s.correct),completion:s.complete?'complete':'partial'});}
   function renderResult(moveFocus=true) {
     show('quiz-result');const s=core.score(state,bank);const rate=s.rate===null?'未採点':`${Math.round(s.rate*10)/10}％`;
-    $('quiz-result').innerHTML=`<div class="result-card"><p class="result-eyebrow">${s.complete?s.total+'問コース、完走。':s.answered?'今日は、ここまで。途中結果です。':'まだ答えていません。いつでもどうぞ。'}</p><h2 class="result-title" id="result-title">${escape(s.title)}</h2><div class="result-score"><strong>${rate}</strong><span>${s.rate===null?'':'正答率'}</span></div><p><strong>${s.answered}問に答えて、${s.correct}問正解。</strong></p><p class="note">${s.total}問コース / 全100問 ${s.answered?`· 称号 ${s.level+1} / 10段階`:''}<br>未回答の${s.total-s.answered}問は、点数に含めていません。</p><p class="result-note">${s.answered?'覚えたことをひとつ、次のお風呂へ。<br>間違えた問いにも、いい発見がありましたか。':'点数も称号も、ひとつ答えてから。<br>まずは気になる問いから始めましょう。'}</p></div><div class="actions">${!s.complete?'<button type="button" class="button" id="continue-quiz">続きの湯けむりへ →</button>':''}<button type="button" class="button secondary" id="new-quiz">コース選びに戻る</button></div>${s.answered?`<div class="actions" aria-label="結果の共有"><button type="button" class="button secondary" id="share-result">結果をシェア ↗</button><a class="button secondary" id="share-x" target="_blank" rel="noopener noreferrer" href="https://twitter.com/intent/tweet?text=${encodeURIComponent(core.shareText(s))}&url=${encodeURIComponent(URL)}">Xでシェア ↗</a><a class="button secondary" id="share-line" target="_blank" rel="noopener noreferrer" href="https://social-plugins.line.me/lineit/share?url=${encodeURIComponent(URL)}&text=${encodeURIComponent(core.shareText(s))}">LINEで送る ↗</a><button type="button" class="text-button" id="copy-result">結果とURLをコピー</button></div><p id="share-status" class="share-status" role="status" aria-live="polite"></p><p class="note">回答数と途中・完走の区別も一緒に伝わります。投稿前に内容を確認できます。</p><section class="learn-section" aria-labelledby="review-title"><h3 id="review-title">今日の収穫を、おさらい。</h3><div class="review-controls" aria-label="振り返る問題"><button type="button" data-review="wrong" aria-pressed="${mode==='wrong'}">間違えた問い</button><button type="button" data-review="all" aria-pressed="${mode==='all'}">答えた問いすべて</button></div><div id="review-content"></div></section>`:''}`;
+    $('quiz-result').innerHTML=`<div class="result-card"><p class="result-eyebrow">${s.complete?s.total+'問コース、完走。':s.answered?'今日は、ここまで。途中結果です。':'まだ答えていません。いつでもどうぞ。'}</p><h2 class="result-title" id="result-title">${escape(s.title)}</h2><div class="result-score"><strong>${rate}</strong><span>${s.rate===null?'':'正答率'}</span></div><p><strong>${s.answered}問に答えて、${s.correct}問正解。</strong></p><p class="note">${s.total}問コース / 全100問 ${s.answered?`· 称号 ${s.level+1} / 10段階`:''}<br>未回答の${s.total-s.answered}問は、点数に含めていません。</p><p class="result-note">${s.answered?'覚えたことをひとつ、次のお風呂へ。<br>間違えた問いにも、いい発見がありましたか。':'点数も称号も、ひとつ答えてから。<br>まずは気になる問いから始めましょう。'}</p></div><div class="actions">${!s.complete?'<button type="button" class="button" id="continue-quiz">続きの湯けむりへ →</button>':''}<button type="button" class="button secondary" id="new-quiz">コース選びに戻る</button></div>${s.answered?`<figure style="margin:24px 0;max-width:720px"><img src="assets/quiz-results/rank-${String(s.level+1).padStart(2,'0')}.png" width="1200" height="630" alt="称号「${escape(s.title)}」のシェアカード" style="display:block;width:100%;height:auto;border:1px solid var(--line)"><figcaption class="note">SNSで共有する称号カード</figcaption></figure><div class="actions" aria-label="結果の共有"><button type="button" class="button secondary" id="share-result">結果をシェア ↗</button><a class="button secondary" id="share-x" target="_blank" rel="noopener noreferrer" href="https://twitter.com/intent/tweet?text=${encodeURIComponent(core.shareText(s))}&url=${encodeURIComponent(core.shareURL(s))}">Xでシェア ↗</a><a class="button secondary" id="share-line" target="_blank" rel="noopener noreferrer" href="https://social-plugins.line.me/lineit/share?url=${encodeURIComponent(core.shareURL(s))}&text=${encodeURIComponent(core.shareText(s))}">LINEで送る ↗</a><button type="button" class="text-button" id="copy-result">結果とURLをコピー</button></div><p id="share-status" class="share-status" role="status" aria-live="polite"></p><p class="note">称号の画像は専用URLから表示されます。回答数・正答率・途中／完走は投稿文に含まれます。SNSによって画像の反映に時間がかかる場合があります。</p><section class="learn-section" aria-labelledby="review-title"><h3 id="review-title">今日の収穫を、おさらい。</h3><div class="review-controls" aria-label="振り返る問題"><button type="button" data-review="wrong" aria-pressed="${mode==='wrong'}">間違えた問い</button><button type="button" data-review="all" aria-pressed="${mode==='all'}">答えた問いすべて</button></div><div id="review-content"></div></section>`:''}`;
     $('continue-quiz')?.addEventListener('click',()=>{state.ended=false;state.cursor=Math.min(s.answered,state.ids.length-1);save();renderQuestion();});
     $('new-quiz').addEventListener('click',()=>{updateStart();show('quiz-start');focus($('quiz-start').querySelector('legend'));});
     if(s.answered){
@@ -283,7 +289,7 @@ window.SANREI_LEARN = {"questions": [{"id": "heat-01", "category": "heat", "ques
     $('review-content').innerHTML=list.length?'<ul class="review-list">'+list.map(q=>`<li><span class="review-flag">${state.answers[q.id]===q.answer?'正解 ✓':'今日の学び'} · ${escape(data.categories[q.category])}</span><h3>${escape(q.question)}</h3><p>あなたの回答：${escape(q.options[state.answers[q.id]])}<br><strong>正解：${escape(q.options[q.answer])}</strong></p><p>${escape(q.explanation)}</p><div class="takeaway"><small>次の一浴へ</small><p>${escape(q.takeaway)}</p></div>${refs(q.sourceIds)}<a class="text-button" href="#question-${escape(q.id)}">元の問いを読む ↓</a></li>`).join('')+'</ul>':'<p class="section-intro">間違えた問いはありません。お見事！「答えた問いすべて」から、覚えておきたい話をもう一度。</p>';
   }
   async function copy() {
-    const text=core.shareText(core.score(state,bank))+'\n'+URL;
+    const text=core.shareText(core.score(state,bank))+'\n'+core.shareURL(core.score(state,bank));
     track('share_click',{placement:'quiz_result',method:'copy',content_type:'quiz',item_id:'quiz'});
     try {
       if(!navigator.clipboard?.writeText)throw new Error('Clipboard unavailable');
@@ -298,7 +304,7 @@ window.SANREI_LEARN = {"questions": [{"id": "heat-01", "category": "heat", "ques
     track('share_click',{placement:'quiz_result',method:'native',content_type:'quiz',item_id:'quiz'});
     if(!navigator.share){$('share-status').textContent='この環境では共有メニューを開けません。X・LINEか、結果のコピーをご利用ください。';return;}
     shareBusy=true;$('share-result').disabled=true;
-    try { await navigator.share({title:'知るほど、いい湯になる。',text:core.shareText(core.score(state,bank)),url:URL});$('share-status').textContent='共有メニューでの操作が完了しました。';track('share',{method:'native',placement:'quiz_result',content_type:'quiz',item_id:'quiz'}); }
+    try { await navigator.share({title:core.score(state,bank).title+'｜湯けむりクイズ',text:core.shareText(core.score(state,bank)),url:core.shareURL(core.score(state,bank))});$('share-status').textContent='共有メニューでの操作が完了しました。';track('share',{method:'native',placement:'quiz_result',content_type:'quiz',item_id:'quiz'}); }
     catch(error){$('share-status').textContent=error.name==='AbortError'?'共有をキャンセルしました。結果はそのままです。':'共有メニューを開けませんでした。コピーやX・LINEをご利用ください。';}
     finally{shareBusy=false;if($('share-result'))$('share-result').disabled=false;}
   }
