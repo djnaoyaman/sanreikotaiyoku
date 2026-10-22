@@ -1637,6 +1637,20 @@ summary { min-height: 44px; }
 
 @media(max-width:700px){.learn-links-grid{grid-template-columns:1fr;gap:10px}.learn-intro-links{padding-block:45px}}
 
+
+/* First view: short invitations; full stories stay in native disclosures. */
+.everyday-scenes .rest-details { margin-top: 14px; }
+.everyday-scenes .rest-details summary h3 { margin: 0; font-size: clamp(1.125rem, 1.9vw, 1.65rem); }
+.everyday-scenes .rest-details > div > p { margin: 0; font-size: .875rem; line-height: 2.1; }
+#everyday-evidence { margin-top: 38px; }
+.reading-note .rest-details { margin-top: 12px; }
+.reading-note summary h2 { margin: 0 !important; }
+.origin-story { margin-top: 48px; }
+.origin-story > .rest-details { margin-top: 0; }
+.origin-story .rest-details h3 { font-size: clamp(1.75rem, 3vw, 2.75rem); }
+.after-bath .rest-details { margin-top: 0; }
+.after-bath .rest-details summary h5 { margin: 0; }
+@media (max-width: 600px) { .everyday-scenes .rest-details summary h3 { font-size: 1.375rem; } }
 </style>
 
 </head>
@@ -1660,7 +1674,7 @@ summary { min-height: 44px; }
           <p class="hero-kicker"><span>炭酸泉</span><span class="pair-sign" aria-hidden="true">×</span><span>水風呂</span></p>
           <h1 class="hero-subject" id="hero-title">酸冷交代浴とは。<span>炭酸泉と水風呂を、交互に。</span></h1>
           <p class="hero-catch"><span class="hero-first">あれ。</span><span>今度は、</span><span>内側から。</span></p>
-          <p class="hero-definition" id="definition">酸冷交代浴（さんれいこうたいよく）は、炭酸泉と水風呂を交互に楽しむ入浴体験に、湯気文吾がつけた名前です。</p>
+          <p class="hero-definition" id="definition">さんれいこうたいよく。湯気文吾が名づけた入浴体験です。</p>
           <a class="hero-places action-primary" href="#places" data-track="facility_list_click" data-placement="hero">体験できる施設を見る <span aria-hidden="true">↓</span></a>
           <div class="hero-actions"><a class="hero-cta" href="#everyday">日常に、どんな楽しみが？ <span aria-hidden="true">↓</span></a><button class="hero-share" type="button" data-share data-placement="hero" hidden>友だちに送る ↗</button></div>
         </div>
@@ -1679,11 +1693,11 @@ summary { min-height: 44px; }
               <figcaption>内から<span>ショワ。</span></figcaption>
             </figure>
           </div>
-          <p class="visual-caption">お湯が変わる。感じる向きが変わる。</p>
+          
           <p class="visual-note">個人の感触を、泡と波紋で表しています。</p>
         </div>
       </div>
-      <div class="hero-bottom wrap"><p>今日の終わりが、楽しみになる。<br>炭酸泉のある施設で、ちょっと特別な寄り道を。</p><div class="hero-tools"><button class="motion-toggle" type="button" data-motion-toggle aria-pressed="false" hidden><span>動きを止める</span></button><a class="scroll-badge" href="#everyday"><span>Scroll</span><b aria-hidden="true">↓</b></a></div></div>
+      <div class="hero-bottom wrap"><div class="hero-tools"><button class="motion-toggle" type="button" data-motion-toggle aria-pressed="false" hidden><span>動きを止める</span></button><a class="scroll-badge" href="#everyday"><span>Scroll</span><b aria-hidden="true">↓</b></a></div></div>
     </section>
     <div class="ticker" aria-hidden="true"><div class="ticker-track"><span>外から、ショワ。 内から、ショワ。 あら、不思議。 </span><span>外から、ショワ。 内から、ショワ。 あら、不思議。 </span><span>外から、ショワ。 内から、ショワ。 あら、不思議。 </span></div></div>
     <section class="everyday" id="everyday" aria-labelledby="everyday-title">
@@ -1691,50 +1705,29 @@ summary { min-height: 44px; }
     <div class="section-label"><span>FOR YOUR EVERYDAY</span><span>仕事帰りに、自分の時間を。</span></div>
     <div class="everyday-heading">
       <h2 id="everyday-title">今日を、仕事だけで<br>終わらせない。</h2>
-      <p>返信して、調べて、また返信。<br>家に帰っても、つい画面を見てしまう夜に。<br>炭酸泉と水風呂のある場所へ、ちょっと寄り道。<br>今夜は、からだの「おや？」を楽しむ時間を。</p>
+      <p>画面を閉じて、お湯のほうへ。</p>
     </div>
     <ol class="everyday-scenes" aria-label="仕事帰りから、家に帰るまで。今夜の3つの楽しみ">
-      <li>
-        <p class="everyday-moment"><span aria-hidden="true">01</span>スマホをしまって</p>
-        <h3>次の通知より、<br>今のぬくもり。</h3>
-        <p>炭酸泉に入ったら、肌につく小さな泡を眺めてみる。温かさは、どこから感じるだろう。返事も、結論もいらない。ただ感じるための時間を、一日の途中に挟んでみよう。</p>
-      </li>
-      <li>
-        <p class="everyday-moment"><span aria-hidden="true">02</span>お湯を変えて</p>
-        <h3>いつものお風呂に、<br>小さな発見を。</h3>
-        <p>炭酸泉のぬくもりと、水風呂のひんやり。「あれ、さっきと違う」。そんな変化に出会えたら、面白い。長く耐えるより、自分はどう感じるか。いつもの入浴を、小さな探検に。</p>
-      </li>
-      <li>
-        <p class="everyday-moment"><span aria-hidden="true">03</span>ひと休みして、家へ</p>
-        <h3>何もしない時間も、<br>今夜の楽しみに。</h3>
-        <p>お湯を出たら、水分をとって、椅子でひと休み。すぐにスマホへ戻らず、ぼんやりするところまでがお風呂。家では好きな曲を一曲。仕事の続きではない夜を、こんな寄り道から始めてみませんか。</p>
-      </li>
+      <li><p class="everyday-moment"><span aria-hidden="true">01</span>スマホをしまって</p><details class="rest-details"><summary><h3>次の通知より、<br>今のぬくもり。</h3><b aria-hidden="true">＋</b></summary><div><p>炭酸泉に入ったら、肌につく小さな泡を眺めてみる。温かさは、どこから感じるだろう。返事も、結論もいらない。ただ感じるための時間を、一日の途中に挟んでみよう。</p></div></details></li>
+      <li><p class="everyday-moment"><span aria-hidden="true">02</span>お湯を変えて</p><details class="rest-details"><summary><h3>いつものお風呂に、<br>小さな発見を。</h3><b aria-hidden="true">＋</b></summary><div><p>炭酸泉のぬくもりと、水風呂のひんやり。「あれ、さっきと違う」。そんな変化に出会えたら、面白い。長く耐えるより、自分はどう感じるか。いつもの入浴を、小さな探検に。</p></div></details></li>
+      <li><p class="everyday-moment"><span aria-hidden="true">03</span>ひと休みして、家へ</p><details class="rest-details"><summary><h3>何もしない時間も、<br>今夜の楽しみに。</h3><b aria-hidden="true">＋</b></summary><div><p>お湯を出たら、水分をとって、椅子でひと休み。すぐにスマホへ戻らず、ぼんやりするところまでがお風呂。家では好きな曲を一曲。仕事の続きではない夜を、こんな寄り道から始めてみませんか。</p></div></details></li>
     </ol>
-    <div class="everyday-science">
-      <div><p class="latin-label">A LITTLE SCIENCE</p><h3>小さな「なぜ？」に、<br>科学の手がかり。</h3></div>
-      <div class="everyday-proof">
-        <p>同じ34℃でも、炭酸泉のほうが温かく感じられ、浸かった肌の血流が増えた。健康な男性6人の比較実験で、そんな違いが見られました。<a class="everyday-source" aria-label="炭酸泉の温感と皮膚血流に関する研究の出典2" href="https://pubmed.ncbi.nlm.nih.gov/12172871/" target="_blank" rel="noopener noreferrer">[2]</a> ぬるいのに、なぜ温かく感じるんだろう。知ってから入ると、気になることがひとつ増えます。</p>
-        <details class="rest-details" id="everyday-evidence" data-research-id="everyday-benefits">
-          <summary><span>科学でわかることと、楽しみ方の提案</span><b aria-hidden="true">＋</b></summary>
-          <div><p>この実験で見られたのは、炭酸泉に入ったときの温感と皮膚血流の変化です。炭酸泉と水風呂の交代浴によるストレス軽減や睡眠改善を確かめたものではありません。3つの場面は、日常の楽しみ方の提案です。感じ方には個人差があります。</p><p>炭酸泉の研究では、深部体温の指標にした鼓膜温は下がりました。「温かく感じる」と「体の芯が温まる」は同じではありません。<a class="everyday-source" href="#ref-2">出典 [2]</a></p><a class="everyday-more" href="guide.html">お風呂と日常の「なぜ？」を、もっと読む <span aria-hidden="true">↗</span></a></div>
+    <details class="rest-details" id="everyday-evidence" data-research-id="everyday-benefits">
+          <summary><span>ぬるいのに、温かい？ 研究を読む</span><b aria-hidden="true">＋</b></summary>
+          <div><p>同じ34℃でも、炭酸泉のほうが温かく感じられ、浸かった肌の血流が増えた。健康な男性6人の比較実験で、そんな違いが見られました。<a class="everyday-source" aria-label="炭酸泉の温感と皮膚血流に関する研究の出典2" href="https://pubmed.ncbi.nlm.nih.gov/12172871/" target="_blank" rel="noopener noreferrer">[2]</a> ぬるいのに、なぜ温かく感じるんだろう。知ってから入ると、気になることがひとつ増えます。</p><p>この実験で見られたのは、炭酸泉に入ったときの温感と皮膚血流の変化です。炭酸泉と水風呂の交代浴によるストレス軽減や睡眠改善を確かめたものではありません。3つの場面は、日常の楽しみ方の提案です。感じ方には個人差があります。</p><p>炭酸泉の研究では、深部体温の指標にした鼓膜温は下がりました。「温かく感じる」と「体の芯が温まる」は同じではありません。<a class="everyday-source" href="#ref-2">出典 [2]</a></p><a class="everyday-more" href="guide.html">お風呂と日常の「なぜ？」を、もっと読む <span aria-hidden="true">↗</span></a></div>
         </details>
-      </div>
-    </div>
     <div class="everyday-ending">
-      <p>今夜は、まっすぐ帰る前に。<br>自分のために、ひと風呂どうですか。</p>
+      <p>今夜の寄り道に。</p>
       <div class="try-actions"><a class="action-primary" href="#places" data-track="facility_list_click" data-placement="everyday">今夜、寄り道するお風呂を探す <span aria-hidden="true">↓</span></a><button class="action-secondary" type="button" data-share data-placement="everyday" hidden>これ、一緒にやってみない？ <span aria-hidden="true">↗</span></button></div>
       <div class="small" style="margin-top:14px">飲酒後・体調不良時は控え、水風呂は無理せず。不安や持病がある方は、先に医師へ相談を。</div>
       <a class="everyday-more" href="#try">はじめての楽しみ方と注意点を見る <span aria-hidden="true">↓</span></a>
     </div>
   </div>
 </section>
-    <aside class="wrap reading-note" id="reading-note" aria-labelledby="reading-note-title" style="padding-block:32px">
-      <h2 id="reading-note-title" style="font-size:1rem;margin-bottom:12px">このサイトの読み方</h2>
-      <p class="small">「ショワ」は湯気文吾の個人的な感触を表す言葉。体験・口コミ・研究を区別して紹介しています。感じ方には個人差があり、体感や健康効果を保証するものではありません。研究の温度・時間・回数は実験条件で、入浴の推奨手順とは区別して読んでください。施設の設備・湯温・利用条件は、訪問時の公式案内と現地の掲示を優先します。</p>
-    </aside>
+    <aside class="wrap reading-note" id="reading-note" aria-labelledby="reading-note-title" style="padding-block:32px"><p class="small">体験の話と、研究でわかること。分けて読めます。</p><details class="rest-details"><summary><h2 id="reading-note-title" style="font-size:1rem;margin-bottom:12px">このサイトの読み方</h2><b aria-hidden="true">＋</b></summary><div><p class="small">「ショワ」は湯気文吾の個人的な感触を表す言葉。体験・口コミ・研究を区別して紹介しています。感じ方には個人差があり、体感や健康効果を保証するものではありません。研究の温度・時間・回数は実験条件で、入浴の推奨手順とは区別して読んでください。施設の設備・湯温・利用条件は、訪問時の公式案内と現地の掲示を優先します。</p></div></details></aside>
     <section class="about-section" id="about" aria-labelledby="about-title">
       <div class="wrap"><div class="section-label"><span>感触の話</span><span>感じてみる</span></div><p class="vertical-thought" aria-hidden="true">あら、不思議。</p>
-      <div class="about-grid"><div class="about-copy"><p class="latin-label">ABOUT</p><h2 id="about-title">お湯を変える。<br>「どこから」が<br>変わる。</h2><p class="about-lead">炭酸泉では、肌の外側から。<br>水風呂では、からだの内側から。<br>ショワ、と感じた。</p><p>この「感じる場所の入れ替わり」が、<br>私にとっての初感触でした。</p><p class="small"><a class="text-link" href="#reading-note">このサイトの読み方 ↗</a></p></div>
+      <div class="about-grid"><div class="about-copy"><p class="latin-label">ABOUT</p><h2 id="about-title">お湯を変える。<br>「どこから」が<br>変わる。</h2><p class="about-lead">炭酸泉では、肌の外側から。<br>水風呂では、からだの内側から。<br>ショワ、と感じた。</p><p class="small"><a class="text-link" href="#reading-note">このサイトの読み方 ↗</a></p></div>
       <div class="experience-panel" data-mode="carbon">
         <p class="chapter-word" aria-hidden="true">ABOUT</p>
         <div class="panel-top"><span>押すと、ショワが入れ替わる。</span><span class="step-index" aria-hidden="true">01 / 02</span></div>
@@ -1759,12 +1752,12 @@ summary { min-height: 44px; }
         </div>
         <div class="panel-bottom"><p class="interaction-hint" aria-live="polite">まずは外から。次は「水風呂」を押してみる。</p><button id="replay" type="button" aria-label="現在の感触の動きをもう一度見る">もう一度 <span aria-hidden="true">↻</span></button></div>
         <p class="diagram-note">個人の感触を、泡と波紋で表したイメージです。</p>
-      </div></div><p class="premium-line">炭酸泉と水風呂。<br>ふたつがそろって出会える、<br class="mobile-break">プレミアムな入浴体験。</p><section class="origin-story" id="origin" aria-labelledby="origin-title"><p class="latin-label">HOW THIS SITE BEGAN</p><h3 id="origin-title">ひとつの感触から、<br>このサイトができました。</h3><ol>
+      </div></div><section class="origin-story" id="origin" aria-labelledby="origin-title"><details class="rest-details"><summary><span>この体験に、名前がつくまで</span><b aria-hidden="true">＋</b></summary><div><p class="latin-label">HOW THIS SITE BEGAN</p><h3 id="origin-title">ひとつの感触から、<br>このサイトができました。</h3><ol>
 <li><span>01</span><h4>感じた。</h4><p>ゆいるの水風呂で、<br>あれ。今度は、内側から。</p></li>
 <li><span>02</span><h4>名前をつけた。</h4><p>ひづめゆで生まれた言葉、<br>「酸冷交代浴」。</p></li>
 <li><span>03</span><h4>調べた。</h4><p>何℃で、何ppmか。<br>肌の血流は、どう変わるか。</p></li>
 <li><span>04</span><h4>まとめた。</h4><p>感じたことと、分かったこと。<br>次に試す人の手がかりに。</p></li>
-</ol><p class="origin-credit">体験・命名・構想　<a class="author-profile-link" href="profile.html" rel="author">湯気文吾のプロフィール <span aria-hidden="true">↗</span></a></p></section></div></section>    <figure class="editorial-photo wrap" id="photo" aria-labelledby="photo-caption"><div class="photo-stage">
+</ol><p class="origin-credit">体験・命名・構想　<a class="author-profile-link" href="profile.html" rel="author">湯気文吾のプロフィール <span aria-hidden="true">↗</span></a></p></div></details></section></div></section>    <figure class="editorial-photo wrap" id="photo" aria-labelledby="photo-caption"><div class="photo-stage">
       <picture><source type="image/webp" srcset="assets/sanrei-glass-640.webp 640w, assets/sanrei-glass-960.webp 960w, assets/sanrei-glass-1536.webp 1536w" sizes="(min-width: 1312px) 1200px, (max-width: 740px) calc(100vw - 40px), 92vw"><img src="assets/sanrei-glass-1536.webp" width="1536" height="1024" loading="lazy" decoding="async" alt="水面を境に、上半分は滑らかに、下半分には細かな泡が付いた透明なガラス球。水が球の外側を囲むイメージ。"></picture>
       <figcaption id="photo-caption"><span>水面を境に、見え方が変わる。</span></figcaption></div>
     </figure>
@@ -1782,7 +1775,7 @@ summary { min-height: 44px; }
       <h2 id="try-title">お湯を変えて、<br>感じてみよう。</h2>
       <p class="try-lead">炭酸泉のあと、水風呂へ。<br>温度だけでなく、「どこから感じるか」に目を向けてみる。</p>
       <ol class="try-steps"><li><div class="ritual-art ritual-warm" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i><b></b></div><span>01</span><h3>炭酸泉で、外から。</h3><p>まずは湯温に慣れながら。<br>肌に触れるお湯の感じを。</p></li><li><div class="ritual-art ritual-cold" aria-hidden="true"><i></i><i></i><i></i><b></b></div><span>02</span><h3>水風呂で、どこから？</h3><p>手足から少しずつ慣らして。<br>今度は、どこから感じるだろう。</p></li><li><div class="ritual-art ritual-rest" aria-hidden="true"><i></i><i></i><b></b></div><span>03</span><h3>休んで、話そう。</h3><p>あなたは、どう感じた？<br>同じお湯でも、答えはひとつじゃない。</p></li></ol>
-      <div class="yuiru-example" style="margin-block:28px;padding:24px;border:1px solid var(--line)"><h3 style="font-size:1.125rem;margin-bottom:12px">たとえば、ゆいるなら。</h3><p>炭酸泉は約30℃・1,500ppm以上。水風呂は13℃前後で、公式でも経験者向けと案内される冷たさです。まず炭酸泉で肌に触れる感触に目を向け、出てから水風呂へは手足から少しずつ。入るなら無理のない短時間にとどめ、出たら休憩へ。「外から」と「内から」の違いを考える、ひとつの流れです。</p><p class="small">温度・濃度は施設の公式案内によるもの。この順番は本サイトの体験の見方で、施設が定めた酸冷交代浴の手順とは区別しています。滞在時間を一律の分数にはせず、冷たすぎる場合は肩まで浸からず短時間で出る、という公式の注意を優先。水風呂を見送って休憩しても大丈夫です。<a class="text-link" href="https://yuiru.net/spa/" target="_blank" rel="noopener noreferrer">炭酸泉の公式案内 ↗</a> · <a class="text-link" href="https://yuiru.net/sauna/" target="_blank" rel="noopener noreferrer">水風呂の公式案内 ↗</a></p></div>
+      <details class="yuiru-example rest-details" style="margin-block:28px;padding:24px;border:1px solid var(--line)"><summary><span>ゆいるでの体験例と、施設の注意点</span><b aria-hidden="true">＋</b></summary><div><p>炭酸泉は約30℃・1,500ppm以上。水風呂は13℃前後で、公式でも経験者向けと案内される冷たさです。まず炭酸泉で肌に触れる感触に目を向け、出てから水風呂へは手足から少しずつ。入るなら無理のない短時間にとどめ、出たら休憩へ。「外から」と「内から」の違いを考える、ひとつの流れです。</p><p class="small">温度・濃度は施設の公式案内によるもの。この順番は本サイトの体験の見方で、施設が定めた酸冷交代浴の手順とは区別しています。滞在時間を一律の分数にはせず、冷たすぎる場合は肩まで浸からず短時間で出る、という公式の注意を優先。水風呂を見送って休憩しても大丈夫です。<a class="text-link" href="https://yuiru.net/spa/" target="_blank" rel="noopener noreferrer">炭酸泉の公式案内 ↗</a> · <a class="text-link" href="https://yuiru.net/sauna/" target="_blank" rel="noopener noreferrer">水風呂の公式案内 ↗</a></p></div></details>
       <p class="try-care">体調のよい日に、無理のない範囲で。寒さや不調があれば中止して休みましょう。<a href="#practice">試す前の注意点を読む ↗</a></p>
       <div class="try-actions"><a class="action-primary" href="#places">どこで試せる？ <span aria-hidden="true">↓</span></a><button class="action-secondary" type="button" data-share hidden>これ、一緒にやってみない？ <span aria-hidden="true">↗</span></button></div>
     </section>
@@ -1798,11 +1791,11 @@ summary { min-height: 44px; }
         <p>長時間にわたり大量に汗をかくなら、ナトリウムを含むスポーツ飲料なども選択肢に。水だけを無理に大量に飲むことは避けます。気分が悪い、めまいがする、といったときは入浴をやめ、施設のスタッフに知らせてください。</p>
       </div></details>
       <div class="supplement-heading"><p class="latin-label">FOR YOUR OWN ROUTINE</p><h3>この一杯まで、<br>極上に。</h3><p>湯あがりの余韻に、いつもの栄養補給を。<br>成分だけでなく、吸収を考えた「かたち」で選ぶ。</p></div>
-      <div class="supplement-grid">
+      
+      <details class="rest-details" data-research-id="nutrition"><summary><span>いつもの栄養補給を、詳しく</span><b aria-hidden="true">＋</b></summary><div><div class="supplement-grid">
         <article class="supplement-card"><p class="product-type">リポソーム化ビタミンC</p><h4>Lypo-C<span>リポ・シー</span></h4><p class="product-tech">ビタミンCを、小さなカプセルに。</p><p>吸収性を追求して、ビタミンCをリン脂質のカプセルに包む<strong>リポソーム化</strong>。1包に1,000mgを含む、液状のリポ・シーです。<a class="inline-source" href="#ref-14">[14]</a></p><p class="product-serving"><strong>水に混ぜる飲み方例</strong>1包を水200mLに。水の量は、本サイトが飲みやすさを考えて示した例です。<a class="inline-source" href="#ref-14">[14]</a></p><a class="official-link" data-track="product_click" data-product-id="lypo_c" data-placement="nutrition" href="https://lypo-c.shop/products/lypo-c-30" target="_blank" rel="noopener noreferrer">Lypo-Cを公式サイトで見る <span aria-hidden="true">↗</span></a></article>
         <article class="supplement-card"><p class="product-type">イオン化ミネラル</p><h4>MINERALion<span>ミネラリオン</span></h4><p class="product-tech">ミネラルを、イオンのかたちで。</p><p>吸収に着目した<strong>イオン化</strong>技術。メーカーが高吸収設計として紹介する、鉄・マグネシウム・亜鉛などを含む液状ミネラルです。<a class="inline-source" href="#ref-15">[15]</a></p><p class="product-serving"><strong>水に混ぜる飲み方例</strong>1包を水200mLに。水の量は本サイトの例。1包10g、食塩相当量0.15g。ロット別の分析は公式で確認できます。<a class="inline-source" href="#ref-15">[15]</a></p><a class="official-link" data-track="product_click" data-product-id="mineralion" data-placement="nutrition" href="https://lypo-c.shop/products/mineralion-30" target="_blank" rel="noopener noreferrer">MINERALionを公式サイトで見る <span aria-hidden="true">↗</span></a></article>
-      </div>
-      <details class="rest-details" data-research-id="nutrition"><summary><span>吸収を考えた設計と、この体験への期待</span><b aria-hidden="true">＋</b></summary><div><p>リポソーム化・イオン化は、各製品が吸収に着目して採用した設計です。</p><p>酸冷交代浴のひと休みに、栄養をとる。吸収された栄養素が、からだ中をめぐっていく。そんなことを思い描くと、この一杯まで楽しみになる。湯気文吾は、そんな期待も抱いています。</p><p class="small">酸冷交代浴によって吸収がさらに高まるかは、まだわかっていません。</p></div></details>
+      </div><p>リポソーム化・イオン化は、各製品が吸収に着目して採用した設計です。</p><p>酸冷交代浴のひと休みに、栄養をとる。吸収された栄養素が、からだ中をめぐっていく。そんなことを思い描くと、この一杯まで楽しみになる。湯気文吾は、そんな期待も抱いています。</p><p class="small">酸冷交代浴によって吸収がさらに高まるかは、まだわかっていません。</p></div></details>
     </div></section>
 
     <section class="places" id="places" aria-labelledby="places-title"><div class="wrap">
@@ -1812,8 +1805,8 @@ summary { min-height: 44px; }
       <!-- FACILITY_COMPARISON --><details class="facility-directory"><summary><span>10施設を、地域から見比べる</span><span aria-hidden="true">＋</span></summary><p>施設名を押すと、紹介と選定理由へ進めます。</p><div class="facility-table-scroll" tabindex="0" role="region" aria-label="全国10施設の比較表。狭い画面では横にスクロールできます。"><table><caption>地域と、炭酸泉の口コミで注目した点</caption><thead><tr><th scope="col">地域</th><th scope="col">施設</th><th scope="col">口コミの着眼点</th><th scope="col">公式案内</th></tr></thead><tbody><tr><td>北海道・平取町</td><th scope="row"><a href="#place-biratori">びらとり温泉 ゆから</a></th><td>炭酸の強さへの声</td><td><a href="https://www.biratori-onsen.com/spa/" target="_blank" rel="noopener noreferrer" data-track="facility_click" data-facility-id="biratori" data-placement="facility_comparison">公式 ↗</a></td></tr><tr><td>岩手県・盛岡市</td><th scope="row"><a href="#place-kimori">喜盛の湯</a></th><td>炭酸の強さへの声</td><td><a href="https://kimorinoyu.com/bath/" target="_blank" rel="noopener noreferrer" data-track="facility_click" data-facility-id="kimori" data-placement="facility_comparison">公式 ↗</a></td></tr><tr><td>宮城県・仙台市</td><th scope="row"><a href="#place-sendai">スパメッツァ仙台 竜泉寺の湯</a></th><td>ぬるめ・入り方への声</td><td><a href="https://ryusenjinoyu.com/spametsasendai/spa" target="_blank" rel="noopener noreferrer" data-track="facility_click" data-facility-id="sendai" data-placement="facility_comparison">公式 ↗</a></td></tr><tr><td>千葉県・流山市</td><th scope="row"><a href="#place-sumire">南柏天然温泉 すみれ</a></th><td>泡付きへの声</td><td><a href="https://minamikashiwa-sumire.com/spa-2/" target="_blank" rel="noopener noreferrer" data-track="facility_click" data-facility-id="sumire" data-placement="facility_comparison">公式 ↗</a></td></tr><tr><td>神奈川県・藤沢市</td><th scope="row"><a href="#place-karasawa">湯乃市 柄沢店</a></th><td>湯温・泡の心地よさへの声</td><td><a href="https://yunoichi.com/karasawa/" target="_blank" rel="noopener noreferrer" data-track="facility_click" data-facility-id="karasawa" data-placement="facility_comparison">公式 ↗</a></td></tr><tr><td>愛知県・名古屋市</td><th scope="row"><a href="#place-moriyama">天空SPA HILLS 竜泉寺の湯 名古屋守山本店</a></th><td>露天・ぬるめへの声</td><td><a href="https://www.ryusenjinoyu.com/moriyama/furo/" target="_blank" rel="noopener noreferrer" data-track="facility_click" data-facility-id="moriyama" data-placement="facility_comparison">公式 ↗</a></td></tr><tr><td>大阪府・箕面市</td><th scope="row"><a href="#place-mino">箕面湯元 水春</a></th><td>心地よさへの声</td><td><a href="https://suisyun.jp/mino/onsen-ofuro/" target="_blank" rel="noopener noreferrer" data-track="facility_click" data-facility-id="mino" data-placement="facility_comparison">公式 ↗</a></td></tr><tr><td>広島県・広島市</td><th scope="row"><a href="#place-gion">スパシーレ祇園</a></th><td>ぬるめの露天への声</td><td><a href="https://spaseare-gion.jp/bath" target="_blank" rel="noopener noreferrer" data-track="facility_click" data-facility-id="gion" data-placement="facility_comparison">公式 ↗</a></td></tr><tr><td>愛媛県・松山市</td><th scope="row"><a href="#place-matsuyama">伊予の湯治場 喜助の湯</a></th><td>温度設定への声</td><td><a href="https://kisuke.com/yu-matsuyama/bath" target="_blank" rel="noopener noreferrer" data-track="facility_click" data-facility-id="matsuyama" data-placement="facility_comparison">公式 ↗</a></td></tr><tr><td>福岡県・新宮町</td><th scope="row"><a href="#place-shingu">新宮温泉 ふくの湯</a></th><td>泡の刺激・ぬるめへの声</td><td><a href="https://www.fukunoyu.com/shingu/bath/" target="_blank" rel="noopener noreferrer" data-track="facility_click" data-facility-id="shingu" data-placement="facility_comparison">公式 ↗</a></td></tr></tbody></table></div><p class="facility-directory-note">口コミに表れた感触や好みを比較しています。</p></details><!-- /FACILITY_COMPARISON -->
       <div class="hall-heading"><p class="latin-label">HALL OF FAME</p><h3>ふたつの、はじまり。</h3><p>酸冷交代浴の物語に、欠かせない場所。<br>このサイトの殿堂入りです。</p></div>
       <div class="hall-grid">
-        <article class="hall-card" id="hall-hizume"><div class="hall-meta"><span>殿堂入り</span><span>岩手県・紫波町</span></div><p class="hall-role">言葉の、発祥の地。</p><h4>ひづめゆ</h4><p>「酸冷交代浴」という言葉が生まれた場所。<br>命名は湯気文吾。</p><a class="official-link" data-track="facility_click" data-facility-id="hizume" data-placement="hall_of_fame" href="https://hizumeyu.jp/" target="_blank" rel="noopener noreferrer">ひづめゆ 公式サイト <span aria-hidden="true">↗</span></a><aside class="after-bath" aria-labelledby="after-hizume"><p class="after-bath-by">湯気文吾のおすすめ</p><h5 id="after-hizume">風呂のあとまで、紫波を。</h5><p><a href="https://greenneighbors.jp/" target="_blank" rel="noopener noreferrer">Green Neighbors Hard Cider ↗</a>の一杯か、<a href="https://www.instagram.com/228_shokudo/" target="_blank" rel="noopener noreferrer">藤屋食堂 ↗</a>の酒粕料理を。</p><p>そのあとは、<a href="https://www.instagram.com/junmai_nitro/" target="_blank" rel="noopener noreferrer">純米ニトロ ↗</a>で家庭料理と音楽。お風呂の余韻を、街でゆっくり楽しむ贅沢です。</p></aside></article>
-        <article class="hall-card" id="hall-yuiru"><div class="hall-meta"><span>殿堂入り</span><span>神奈川県・川崎市</span></div><p class="hall-role">体感の、はじまりの地。</p><h4><small>朝日湯源泉</small>ゆいる</h4><p>琥珀色をした、<br><strong>超高濃度の不感強炭酸泉。</strong></p><p class="small">公式案内では、約30℃・炭酸濃度1,500ppm以上。</p><p>湯気文吾が「酸冷交代浴」の感触に、<br>初めて出会った場所。</p><a class="official-link" data-track="facility_click" data-facility-id="yuiru" data-placement="hall_of_fame" href="https://yuiru.net/spa/" target="_blank" rel="noopener noreferrer">ゆいる 公式サイト <span aria-hidden="true">↗</span></a><aside class="after-bath" aria-labelledby="after-yuiru"><p class="after-bath-by">湯気文吾のおすすめ</p><h5 id="after-yuiru">風呂のあとに、もうひとつ。</h5><p><strong>すくい麻婆豆腐と、スパイスカレー。</strong><br>ゆいるで私がすすめたいサ飯は、このふたつ。お湯を楽しんだあとは、おいしい時間まで。</p><a class="after-bath-link" href="https://yuiru.net/restaurant/" target="_blank" rel="noopener noreferrer">ゆいるのお食事を見る ↗</a></aside></article>
+        <article class="hall-card" id="hall-hizume"><div class="hall-meta"><span>殿堂入り</span><span>岩手県・紫波町</span></div><p class="hall-role">言葉の、発祥の地。</p><h4>ひづめゆ</h4><p>「酸冷交代浴」という言葉が生まれた場所。<br>命名は湯気文吾。</p><a class="official-link" data-track="facility_click" data-facility-id="hizume" data-placement="hall_of_fame" href="https://hizumeyu.jp/" target="_blank" rel="noopener noreferrer">ひづめゆ 公式サイト <span aria-hidden="true">↗</span></a><aside class="after-bath" aria-labelledby="after-hizume"><details class="rest-details"><summary><h5 id="after-hizume">風呂のあとまで、紫波を。</h5><b aria-hidden="true">＋</b></summary><div><p class="after-bath-by">湯気文吾のおすすめ</p><p><a href="https://greenneighbors.jp/" target="_blank" rel="noopener noreferrer">Green Neighbors Hard Cider ↗</a>の一杯か、<a href="https://www.instagram.com/228_shokudo/" target="_blank" rel="noopener noreferrer">藤屋食堂 ↗</a>の酒粕料理を。</p><p>そのあとは、<a href="https://www.instagram.com/junmai_nitro/" target="_blank" rel="noopener noreferrer">純米ニトロ ↗</a>で家庭料理と音楽。お風呂の余韻を、街でゆっくり楽しむ贅沢です。</p></div></details></aside></article>
+        <article class="hall-card" id="hall-yuiru"><div class="hall-meta"><span>殿堂入り</span><span>神奈川県・川崎市</span></div><p class="hall-role">体感の、はじまりの地。</p><h4><small>朝日湯源泉</small>ゆいる</h4><p>琥珀色をした、<br><strong>超高濃度の不感強炭酸泉。</strong></p><p class="small">公式案内では、約30℃・炭酸濃度1,500ppm以上。</p><p>湯気文吾が「酸冷交代浴」の感触に、<br>初めて出会った場所。</p><a class="official-link" data-track="facility_click" data-facility-id="yuiru" data-placement="hall_of_fame" href="https://yuiru.net/spa/" target="_blank" rel="noopener noreferrer">ゆいる 公式サイト <span aria-hidden="true">↗</span></a><aside class="after-bath" aria-labelledby="after-yuiru"><details class="rest-details"><summary><h5 id="after-yuiru">風呂のあとに、もうひとつ。</h5><b aria-hidden="true">＋</b></summary><div><p class="after-bath-by">湯気文吾のおすすめ</p><p><strong>すくい麻婆豆腐と、スパイスカレー。</strong><br>ゆいるで私がすすめたいサ飯は、このふたつ。お湯を楽しんだあとは、おいしい時間まで。</p><a class="after-bath-link" href="https://yuiru.net/restaurant/" target="_blank" rel="noopener noreferrer">ゆいるのお食事を見る ↗</a></div></details></aside></article>
       </div>
       <p class="hall-note">殿堂入りと風呂あがりのおすすめは、湯気文吾自身の体験に基づくものです。水分をとって、ひと休みしてから。営業日・提供メニューは各店の最新案内をご確認ください。</p>
       <div class="ten-heading"><p class="latin-label">THE SELECTED 10</p><h3 id="selected-places-title">炭酸泉を目当てにしたい、<br>全国の10選。</h3><p>泡付き。ぬるめの心地よさ。また入りたい、という声。<br>炭酸泉そのものへの好評と、サウナ・水風呂の設備を手がかりに選びました。</p></div>
@@ -1886,7 +1879,7 @@ summary { min-height: 44px; }
 
     <section class="curiosity wrap" id="curiosity" aria-labelledby="curiosity-title">
       <p class="latin-label">FOLLOW YOUR CURIOSITY</p><h2 id="curiosity-title">気になったら、<br>確かめてみる。</h2><p class="curiosity-lead">「やってみたい」の、その先へ。<br>体験の話と、研究で分かったことを分けて読めます。</p>
-      <details class="curiosity-item" data-research-id="science"><summary><span><small>感触の手がかり</small><strong>どうして、そう感じるの？</strong><em>同じぬるさでも、温かく感じる研究があります。</em></span><b aria-hidden="true">＋</b></summary><div class="curiosity-body">    <section class="science-section" id="science" aria-labelledby="science-title">
+      <details class="curiosity-item" data-research-id="science"><summary><span><small>感触の手がかり</small><strong>どうして、そう感じるの？</strong></span><b aria-hidden="true">＋</b></summary><div class="curiosity-body">    <section class="science-section" id="science" aria-labelledby="science-title">
       <div class="wrap">
         
         <div class="section-heading"><h2 id="science-title">ぬるいのに、<br>温かく感じるのは？</h2><p>炭酸泉と水風呂の、感じ方の違い。<br>研究で分かっているところまで。</p></div>
@@ -1915,7 +1908,7 @@ summary { min-height: 44px; }
         <div class="hypothesis"><div class="hypothesis-mark" aria-hidden="true"><span>?</span><small>OPEN QUESTION</small></div><div><p class="eyebrow">ここからは、まだ仮説。</p><h3>感じた。<br>でも、まだ謎だ。</h3><p>温度感覚の変化や血管の反応が、この感触に関係する可能性はあります。ただし、今回確認した研究では、その因果関係は検証されていません。</p><p>「血流が最大になる」「水風呂で深部体温が上がる」「体内で泡が発生する」という説明を、この感触から導くことはできません。体験の言葉を大切にしながら、仕組みは問いとして残します。</p></div></div>
       </div>
     </section></div></details>
-      <details class="curiosity-item" data-research-id="quality"><summary><span><small>お湯の選び方</small><strong>良い炭酸泉は、どう見分ける？</strong><em>見るのは、温度と炭酸濃度。</em></span><b aria-hidden="true">＋</b></summary><div class="curiosity-body">    <section class="quality-section" id="quality" aria-labelledby="quality-title">
+      <details class="curiosity-item" data-research-id="quality"><summary><span><small>お湯の選び方</small><strong>良い炭酸泉は、どう見分ける？</strong></span><b aria-hidden="true">＋</b></summary><div class="curiosity-body">    <section class="quality-section" id="quality" aria-labelledby="quality-title">
       <div class="wrap">
         
         <div class="quality-heading"><h2 id="quality-title">良い炭酸泉の<br>見分け方</h2><p>何℃で、何ppmか。<br>ふたつの数字を、<br>一緒に見る。</p></div>
@@ -1937,7 +1930,7 @@ summary { min-height: 44px; }
         <p class="quality-endnote">「良い」を、熱さや泡の印象だけで決めず、条件を知って選ぶ。体感の違いを楽しむための、科学のものさしです。</p>
       </div>
     </section></div></details>
-      <details class="curiosity-item" data-research-id="practice"><summary><span><small>無理なく楽しむ</small><strong>試す前に、気をつけることは？</strong><em>回数より、今日の体調。注意点と私の実践メモ。</em></span><b aria-hidden="true">＋</b></summary><div class="curiosity-body">    <section class="practice" id="practice" aria-labelledby="practice-title">
+      <details class="curiosity-item" data-research-id="practice"><summary><span><small>無理なく楽しむ</small><strong>試す前に、気をつけることは？</strong></span><b aria-hidden="true">＋</b></summary><div class="curiosity-body">    <section class="practice" id="practice" aria-labelledby="practice-title">
       <div class="wrap">
       <div class="section-heading"><h2 id="practice-title">回数よりも、<br>今日のからだ。</h2><p>昨日と同じお湯でも、<br>今日は、ちがうかもしれない。</p></div>
       <div class="practice-grid"><article class="personal-note"><p class="eyebrow">湯気文吾の実践メモ</p><h3>ぬるい炭酸泉では、<br>事前の温まり方も関係する。</h3><p>低温の炭酸泉を楽しむときは、先にサウナ → 水風呂 → 外気浴を3セットほど行う、という私の経験があります。「そうでないと寒いから」です。</p><p class="small">私個人の実践メモです。回数を合わせず、寒さや疲れがあれば中止して休んでください。</p></article><div class="care"><h3>無理なく楽しむために</h3><ul><li>水分をとり、飲酒後や体調がよくない日は控える。</li><li>水風呂には急に入らず、手足から少しずつ温度に慣らす。</li><li>寒さ、震え、めまい、動悸などが出たら中止する。</li><li>心臓・血圧などに不安がある場合は、医師に確認する。</li></ul><a class="text-link" href="https://www.caa.go.jp/policies/policy/consumer_safety/caution/caution_076/" target="_blank" rel="noopener noreferrer">消費者庁の注意喚起を読む ↗</a></div></div>
