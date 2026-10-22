@@ -966,7 +966,7 @@ html[data-motion='paused'] .places-swipe-button, html[data-motion='paused'] .pla
 .community-invite h3 { font-size: clamp(2rem,3.4vw,3.25rem); line-height: 1.4; letter-spacing: -.045em; margin-top: 16px; }
 .community-invite .action-secondary { margin-top: 24px; font-size: .8125rem; }
 .community-invite p { font-size: .875rem; }
-.invitation { padding-block: clamp(72px,9vw,140px); background: #0b0b0b; color: #fff; position: relative; isolation: isolate; overflow: clip; }
+.invitation { padding-block: clamp(72px,9vw,140px); background: #0b0b0b; color: #fff; position: relative; isolation: isolate; overflow: hidden; overflow: clip; }
 .invitation h2 { font-size: clamp(2.4rem,7.2vw,7rem); line-height: 1.35; letter-spacing: -.06em; margin: 30px 0; }
 .invitation h2 > span { display: block; }
 .invitation p:not(.latin-label) { line-height: 2.1; }
@@ -1116,7 +1116,7 @@ html[data-motion='paused'] .places-swipe-button, html[data-motion='paused'] .pla
 /* Scroll-linked scenes progressively enhance the readable, static page. */
 .hero { position: relative; isolation: isolate; }
 .hero::before { content: ''; position: absolute; inset: 0; z-index: -1; pointer-events: none; background: radial-gradient(ellipse at 80% 25%,#e6cbb470,transparent 65%),radial-gradient(ellipse at 10% 85%,#bfd6e050,transparent 60%); }
-.hero-visual { position: relative; overflow: clip; }
+.hero-visual { position: relative; overflow: hidden; overflow: clip; }
 .hero-visual::before { content: ''; position: absolute; inset: -40%; pointer-events: none; background: linear-gradient(115deg,transparent 40%,#d6e8ef70 50%,transparent 60%); transform: translateX(-45%); animation: bath-light-pass 12s ease-in-out infinite; animation-play-state: var(--scene-play,paused); }
 .hero-visual > * { position: relative; }
 .about-section { background: linear-gradient(150deg,#fff 30%,#f5eee4 100%); }
@@ -1129,7 +1129,8 @@ html[data-motion='paused'] .places-swipe-button, html[data-motion='paused'] .pla
 
 /* Pin the viewport, not the scroll wheel. The word enters, rests, leaves. */
 .manifesto { display: block; padding: 0; overflow: visible; min-height: 0; }
-.manifesto-stage { position: relative; display: grid; grid-template-rows: 1fr auto 1fr; align-items: center; min-height: 100svh; padding: 36px max(20px,3vw); overflow: clip; isolation: isolate; }
+.manifesto-stage { position: relative; display: grid; grid-template-columns: minmax(0,1fr); grid-template-rows: 1fr auto 1fr; align-items: center; width: 100%; max-width: 100%; min-width: 0; min-height: 100svh; padding: 36px max(20px,3vw); overflow: hidden; overflow: clip; isolation: isolate; }
+.manifesto-stage > * { min-width: 0; }
 .manifesto.scroll-ready { height: 320svh; view-timeline-name: --sanrei-crossing; view-timeline-axis: block; }
 .manifesto.scroll-ready .manifesto-stage { position: sticky; top: 0; height: 100svh; }
 .manifesto-title { position: relative; z-index: 1; transform: translate3d(var(--manifesto-x,0px),0,0); will-change: transform; }
@@ -1520,10 +1521,14 @@ html.disclosure-moving, html.disclosure-moving body { overflow-anchor: none; scr
   <style>
 /* Quiet navigation and feedback, shared by the experience and author pages. */
 :root { --comfort-ink: #111; --comfort-paper: #f9f8f5; --comfort-accent: #52788a; }
-/* Keep wide artwork inside the page. Local scrollers remain independently usable.
-   clip preserves the vertical viewport scroll and sticky/parallax ancestors. */
-html { scroll-padding-top: clamp(84px, 10vh, 120px); overflow-x: hidden; }
-@supports (overflow: clip) { html { overflow-x: clip; } }
+/* Clip real content boxes as well as the viewport. Mobile WebKit can otherwise
+   pan the visual viewport across transformed overflow beyond the root box. */
+html { scroll-padding-top: clamp(84px, 10vh, 120px); width: 100%; max-width: 100%; overflow-x: hidden; overscroll-behavior-x: none; }
+body { width: 100%; max-width: 100%; min-width: 0; }
+main { min-width: 0; max-width: 100%; }
+/* Unlike hidden, clip creates no new scrolling ancestor for sticky scenes. */
+@supports (overflow: clip) { body, main { overflow-x: clip; } }
+#places-track, .facility-table-scroll, .study-table-scroll { max-width: 100%; min-width: 0; overscroll-behavior-x: contain; }
 .sr-only { position: absolute !important; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip-path: inset(50%); white-space: nowrap; border: 0; }
 .reading-tools { position: fixed; z-index: 18; right: max(22px, env(safe-area-inset-right)); bottom: max(22px, calc(env(safe-area-inset-bottom) + 14px)); opacity: 0; visibility: hidden; transform: translateY(6px); transition: opacity .22s ease, transform .22s ease, visibility .22s; pointer-events: none; }
 .reading-tools.is-visible { opacity: 1; visibility: visible; transform: none; pointer-events: auto; }
@@ -2398,6 +2403,47 @@ document.addEventListener('visibilitychange', () => { if (document.hidden) settl
 /* Progressive enhancement: content and ordinary links work without this file. */
 (() => {
   const root = document.documentElement;
+  // A single-finger horizontal drag belongs only to an explicit local scroller.
+  // Keep vertical gestures, pinch zoom, text selection and native fields native.
+  // This is a WebKit fallback in addition to the CSS overflow boundaries.
+  let touch = null;
+  const horizontalRegions = '#places-track, .facility-table-scroll, .study-table-scroll';
+  const zoomed = () => window.visualViewport && window.visualViewport.scale > 1.01;
+  const nativeField = target => target?.closest?.('input,textarea,select,[contenteditable]:not([contenteditable="false"])');
+  document.addEventListener('touchstart', event => {
+    touch = null;
+    if (event.touches.length !== 1 || zoomed() || nativeField(event.target)) return;
+    const point = event.touches[0];
+    touch = { id: point.identifier, x: point.clientX, y: point.clientY, lastX: point.clientX,
+      region: event.target.closest?.(horizontalRegions), axis: null };
+  }, { passive: true });
+  document.addEventListener('touchmove', event => {
+    if (!touch) return;
+    if (event.touches.length !== 1 || zoomed()) { touch = null; return; }
+    if (window.getSelection()?.isCollapsed === false) return;
+    const point = event.touches[0];
+    if (point.identifier !== touch.id) return;
+    const dx = point.clientX - touch.x, dy = point.clientY - touch.y;
+    const deltaX = point.clientX - touch.lastX;
+    touch.lastX = point.clientX;
+    if (!touch.axis) {
+      if (Math.max(Math.abs(dx), Math.abs(dy)) < 8) return;
+      touch.axis = Math.abs(dx) > Math.abs(dy) * 1.2 ? 'x' : 'y';
+    }
+    if (touch.axis !== 'x') return;
+    const region = touch.region;
+    if (region) {
+      const overflow = getComputedStyle(region).overflowX;
+      const max = region.scrollWidth - region.clientWidth;
+      const canMove = max > 1 && /^(auto|scroll)$/.test(overflow) &&
+        (deltaX < 0 ? region.scrollLeft < max - 1 : region.scrollLeft > 1);
+      if (canMove) return;
+    }
+    if (event.cancelable) event.preventDefault();
+  }, { passive: false });
+  const releaseTouch = () => { touch = null; };
+  document.addEventListener('touchend', releaseTouch, { passive: true });
+  document.addEventListener('touchcancel', releaseTouch, { passive: true });
   const reduced = matchMedia('(prefers-reduced-motion: reduce)');
   const tools = document.querySelector('.reading-tools');
   let noticeTimer;
@@ -2434,7 +2480,7 @@ document.addEventListener('visibilitychange', () => { if (document.hidden) settl
     }
     const padding = parseFloat(getComputedStyle(root).scrollPaddingTop) || 100;
     const top = target.id === 'top' ? 0 : Math.max(0, scrollY + target.getBoundingClientRect().top - padding);
-    window.scrollTo({ top, behavior: animate && motionAllowed() ? 'smooth' : 'instant' });
+    window.scrollTo({ top, left: 0, behavior: animate && motionAllowed() ? 'smooth' : 'instant' });
     if (focus && target.id !== 'top') {
       document.querySelectorAll('.anchor-arrived').forEach(node => node.classList.remove('anchor-arrived'));
       const marker = target.matches('h1,h2,h3,li[id]') ? target : target.querySelector('h1,h2,h3');
