@@ -51,7 +51,9 @@ main { min-width: 0; max-width: 100%; }
 /* Unlike hidden, clip creates no new scrolling ancestor for sticky scenes. */
 @supports (overflow: clip) { body, main { overflow-x: clip; } }
 #places-track, .facility-table-scroll, .study-table-scroll { max-width: 100%; min-width: 0; overscroll-behavior-x: contain; }
-.sr-only { position: absolute !important; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip-path: inset(50%); white-space: nowrap; border: 0; }
+/* Explicit coordinates keep off-screen carousel descriptions from expanding the
+   document. !important prevents icon rules such as .official-link span winning. */
+.sr-only { position: absolute !important; top: 0 !important; left: 0 !important; right: auto !important; bottom: auto !important; width: 1px !important; height: 1px !important; padding: 0 !important; margin: 0 !important; overflow: hidden !important; clip-path: inset(50%) !important; white-space: nowrap !important; border: 0 !important; transform: none !important; }
 .reading-tools { position: fixed; z-index: 18; right: max(22px, env(safe-area-inset-right)); bottom: max(22px, calc(env(safe-area-inset-bottom) + 14px)); opacity: 0; visibility: hidden; transform: translateY(6px); transition: opacity .22s ease, transform .22s ease, visibility .22s; pointer-events: none; }
 .reading-tools.is-visible { opacity: 1; visibility: visible; transform: none; pointer-events: auto; }
 .reading-tools[hidden] { display: none; }
@@ -204,47 +206,6 @@ summary { min-height: 44px; }
 /* Progressive enhancement: content and ordinary links work without this file. */
 (() => {
   const root = document.documentElement;
-  // A single-finger horizontal drag belongs only to an explicit local scroller.
-  // Keep vertical gestures, pinch zoom, text selection and native fields native.
-  // This is a WebKit fallback in addition to the CSS overflow boundaries.
-  let touch = null;
-  const horizontalRegions = '#places-track, .facility-table-scroll, .study-table-scroll';
-  const zoomed = () => window.visualViewport && window.visualViewport.scale > 1.01;
-  const nativeField = target => target?.closest?.('input,textarea,select,[contenteditable]:not([contenteditable="false"])');
-  document.addEventListener('touchstart', event => {
-    touch = null;
-    if (event.touches.length !== 1 || zoomed() || nativeField(event.target)) return;
-    const point = event.touches[0];
-    touch = { id: point.identifier, x: point.clientX, y: point.clientY, lastX: point.clientX,
-      region: event.target.closest?.(horizontalRegions), axis: null };
-  }, { passive: true });
-  document.addEventListener('touchmove', event => {
-    if (!touch) return;
-    if (event.touches.length !== 1 || zoomed()) { touch = null; return; }
-    if (window.getSelection()?.isCollapsed === false) return;
-    const point = event.touches[0];
-    if (point.identifier !== touch.id) return;
-    const dx = point.clientX - touch.x, dy = point.clientY - touch.y;
-    const deltaX = point.clientX - touch.lastX;
-    touch.lastX = point.clientX;
-    if (!touch.axis) {
-      if (Math.max(Math.abs(dx), Math.abs(dy)) < 8) return;
-      touch.axis = Math.abs(dx) > Math.abs(dy) * 1.2 ? 'x' : 'y';
-    }
-    if (touch.axis !== 'x') return;
-    const region = touch.region;
-    if (region) {
-      const overflow = getComputedStyle(region).overflowX;
-      const max = region.scrollWidth - region.clientWidth;
-      const canMove = max > 1 && /^(auto|scroll)$/.test(overflow) &&
-        (deltaX < 0 ? region.scrollLeft < max - 1 : region.scrollLeft > 1);
-      if (canMove) return;
-    }
-    if (event.cancelable) event.preventDefault();
-  }, { passive: false });
-  const releaseTouch = () => { touch = null; };
-  document.addEventListener('touchend', releaseTouch, { passive: true });
-  document.addEventListener('touchcancel', releaseTouch, { passive: true });
   const reduced = matchMedia('(prefers-reduced-motion: reduce)');
   const tools = document.querySelector('.reading-tools');
   let noticeTimer;
