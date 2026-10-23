@@ -92,3 +92,67 @@ footer a,footer a:visited{color:inherit}
 @media(prefers-reduced-motion:reduce){.experience-panel,.sensation-token svg{transition:none}#top .hero-visual::before{animation:none}}
 :root[data-motion='paused'] .experience-panel,:root[data-motion='paused'] .sensation-token svg{transition:none}
 @media print{#top.hero,.about-section,.hydration,.manifesto-stage,.invitation,footer{background:#fff;color:#000}.hero-visual,.experience-panel{box-shadow:none}.sensation-token svg{filter:none}}
+
+/* Responsive finishing layer: preserve the editorial layout, let content reflow. */
+.wrap{max-width:1200px;width:calc(100% - max(clamp(20px,4vw,56px),env(safe-area-inset-left)) - max(clamp(20px,4vw,56px),env(safe-area-inset-right)))}
+.hero-grid>*,.profile-heading>*,.editorial-row>*,.bridge>*,.course-grid>*,.answer-option>*,.activity-list a>*,.work-list>div>*{min-width:0}
+.hero-copy,.profile-heading,.editorial-row,.bridge,.question-title,.answer-option,.result-card,.site-footer,footer{overflow-wrap:anywhere}
+.profile-heading h1{white-space:normal}
+.global-nav a,.header-back,footer a,.footer-links a,.facility-table-scroll a{min-height:44px;display:inline-flex;align-items:center}
+.global-nav,.footer-links{row-gap:8px}
+.site-footer,footer{column-gap:24px;row-gap:12px}
+.site-footer>*,footer>*{min-width:0;max-width:100%}
+.site-footer,.site-footer a,footer>span,footer .footer-en{font-size:max(.75rem,12px);line-height:1.8}
+.search-tools input,.search-tools select{font-size:1rem}
+.search-tools label{min-width:min(190px,100%)}
+.actions>.button,.quiz-controls .button,.action-primary,.action-secondary{max-width:100%;white-space:normal;text-align:center}
+.result-score{flex-wrap:wrap}
+#top.hero{padding-top:calc(132px + env(safe-area-inset-top))}
+#top .sensation-token{min-width:0}
+#top .sensation-token svg{max-width:100%;height:auto}
+#top .sensation-token figcaption{overflow-wrap:anywhere}
+/* Match the existing single-column breakpoint, including its higher-specificity theme rules. */
+@media(max-width:899px){
+ #top .hero-grid{display:grid;grid-template-columns:minmax(0,1fr);max-width:600px;gap:40px;padding-block:20px 40px}
+ #top .hero-catch{font-size:clamp(3rem,10vw,5rem)}
+ #top .hero-visual{margin-top:0;max-width:540px;width:100%;justify-self:center}
+ .learn-hero .hero-grid,.quiz-hero .hero-grid,.profile-heading{grid-template-columns:minmax(0,1fr);gap:32px}
+ .quiz-number{font-size:6rem;display:flex;align-items:baseline;gap:12px;padding-top:0}
+ .quiz-number small{font-size:.875rem}
+}
+@media(max-width:740px){
+ #top.hero{padding-top:calc(116px + env(safe-area-inset-top))}
+ #top .hero-catch{font-size:clamp(2.75rem,13vw,5rem)}
+ #top .hero-visual{margin-top:8px}
+ .site-header .brand{line-height:1.5}
+}
+@media(max-width:600px){
+ .course-grid{grid-template-columns:minmax(0,1fr)}
+ .course{display:grid;grid-template-columns:auto minmax(0,1fr) auto;gap:12px;align-items:center}
+ .course input,.course b{margin:0}
+ .course small{grid-column:2 / 4;font-size:.75rem}
+ .course strong{font-size:1rem}
+ .answer-option{align-items:flex-start}
+ .answer-key{margin-top:2px}
+ .actions>.button,.quiz-controls .button{width:100%;min-width:0;justify-content:center}
+ footer,.site-footer{flex-direction:column;align-items:flex-start}
+ footer .footer-en{margin-left:0}
+ .footer-links{width:100%;gap:4px 20px}
+ .profile-heading h1{font-size:clamp(2.75rem,12vw,4.5rem)}
+ .activity-list a{grid-template-columns:minmax(0,1fr) auto;column-gap:12px}
+}
+/* Short landscape screens should scroll naturally, not crop full-height scenes. */
+@media(max-height:500px) and (orientation:landscape){
+ #top.hero{min-height:0}
+ #top .hero-grid{padding-bottom:32px}
+ .manifesto.scroll-ready{height:auto;min-height:0}
+ .manifesto.scroll-ready .manifesto-title{animation:none!important;transform:none!important}
+ .manifesto.scroll-ready .manifesto-stage{position:relative;height:auto;min-height:100svh;padding-block:28px}
+ .editorial-photo.parallax-ready{height:auto;min-height:0}
+ .parallax-ready .photo-stage{position:relative;height:auto;min-height:0}
+ .parallax-ready picture{height:auto}
+ .parallax-ready img{height:auto;aspect-ratio:16/9;transform:none}
+}
+@media print{
+ .wrap{width:100%;max-width:none}
+}
