@@ -85,7 +85,8 @@ a:focus-visible,button:focus-visible,summary:focus-visible,input:focus-visible,s
 .invitation .action-secondary{border-color:#776861}
 .invitation::before{border-color:#fff9;box-shadow:0 0 0 7vw #ffffff1c,0 0 0 14vw #ffffff12}
 .curiosity,.references{background:#fbfcfa}
-footer{border-color:#c5d0c7;background:linear-gradient(110deg,#f7e3e0,#fbfcfa 55%,#e2f0ea)}
+footer,.site-footer{color:#2c2c2c;border-color:#c5d0c7;background:linear-gradient(110deg,#f7e3e0,#fbfcfa 55%,#e2f0ea)}
+footer a,footer a:visited{color:inherit}
 @media(max-width:900px){#top .hero-grid{gap:32px}#top .hero-visual{padding-inline:10px}.experience-panel{padding:24px}}
 @media(max-width:740px){#top.hero{padding-top:116px;min-height:0}#top .hero-grid{display:block;padding-block:20px 40px}#top .hero-catch{font-size:clamp(3rem,13vw,5rem);line-height:1.28}#top .hero-visual{margin-top:48px;padding:32px 16px 24px;border-radius:42% 42% 20px 20px}#top .sensation-pair{margin-top:26px;gap:6px}#top .sensation-token figcaption span{font-size:clamp(1.125rem,4.8vw,1.5rem)}.about-grid{grid-template-columns:1fr;gap:40px}.experience-panel{margin-top:0;padding:24px 18px}.manifesto-title{font-weight:700}.action-primary,.action-secondary{padding-inline:22px}}
 @media(prefers-reduced-motion:reduce){.experience-panel,.sensation-token svg{transition:none}#top .hero-visual::before{animation:none}}
