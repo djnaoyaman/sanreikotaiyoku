@@ -126,6 +126,8 @@ summary { min-height: 44px; }
     share: ['method', 'content_type', 'item_id', 'placement'],
     copy_link: ['placement', 'origin_placement', 'content_type', 'item_id'],
     research_open: ['section_id'],
+    bath_select: ['bath'],
+    quiz_answer: ['course', 'question_number', 'correct'],
     quiz_start: ['course'],
     quiz_finish: ['course', 'answered', 'correct', 'completion']
   };
@@ -270,7 +272,9 @@ window.SANREI_LEARN = {"questions": [{"id": "heat-01", "category": "heat", "ques
     $('answer-feedback').innerHTML=`<div class="feedback"><h3 id="feedback-title">${correct?'正解。知識が、ひと蒸し。':'ここが、今日の収穫。'}</h3>${correct?'':`<p><strong>正解は：${escape(q.options[q.answer])}</strong></p>`}<p>${escape(q.explanation)}</p><div class="takeaway"><small>次の一浴へ</small><p>${escape(q.takeaway)}</p></div>${refs(q.sourceIds)}</div>`;
   }
   function choose(choice) {
+    const before=core.score(state,bank).correct;
     if(!core.answer(state,bank,choice))return;
+    const currentScore=core.score(state,bank);track('quiz_answer',{course:String(currentScore.total),question_number:String(currentScore.answered),correct:String(Number(currentScore.correct>before))});
     save();renderQuestion(false);focus($('feedback-title'));
   }
   function finish() {state.ended=true;save();renderResult();const s=core.score(state,bank);track('quiz_finish',{course:String(s.total),answered:String(s.answered),correct:String(s.correct),completion:s.complete?'complete':'partial'});}
@@ -504,3 +508,4 @@ window.SANREI_LEARN = {"questions": [{"id": "heat-01", "category": "heat", "ques
 
 </script>
 </body></html>
+

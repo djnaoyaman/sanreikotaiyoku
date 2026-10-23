@@ -1986,6 +1986,8 @@ summary { min-height: 44px; }
     share: ['method', 'content_type', 'item_id', 'placement'],
     copy_link: ['placement', 'origin_placement', 'content_type', 'item_id'],
     research_open: ['section_id'],
+    bath_select: ['bath'],
+    quiz_answer: ['course', 'question_number', 'correct'],
     quiz_start: ['course'],
     quiz_finish: ['course', 'answered', 'correct', 'completion']
   };
@@ -2024,6 +2026,7 @@ summary { min-height: 44px; }
       });
     }
     if (event.type !== 'click') return;
+    const bath=event.target.closest?.('[data-bath]');if(bath&&event.isTrusted)track('bath_select',{bath:bath.dataset.bath});
     const summary = event.target.closest?.('summary');
     const detail = summary?.parentElement;
     if (detail?.matches('details[data-research-id]:not(.gentle-disclosure)') && !detail.open && !event.target.closest('a, button')) research(detail);
