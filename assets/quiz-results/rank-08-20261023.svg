@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
+<defs>
+<linearGradient id="bg" x2="1" y2="0.3"><stop stop-color="#edc4bd"/><stop offset=".5" stop-color="#f4e6df"/><stop offset="1" stop-color="#c9e7e2"/></linearGradient>
+<radialGradient id="warm" cx=".3" cy=".22" r=".8"><stop stop-color="#fff" stop-opacity=".85"/><stop offset=".5" stop-color="#f4dfda" stop-opacity=".2"/><stop offset=".85" stop-color="#db9b90" stop-opacity=".28"/><stop offset="1" stop-color="#fff" stop-opacity=".7"/></radialGradient>
+<radialGradient id="cool" cx=".3" cy=".2" r=".8"><stop stop-color="#fff" stop-opacity=".9"/><stop offset=".5" stop-color="#e1f3ef" stop-opacity=".14"/><stop offset=".85" stop-color="#8ebdb3" stop-opacity=".23"/><stop offset="1" stop-color="#fff" stop-opacity=".8"/></radialGradient>
+</defs>
+<rect width="1200" height="630" fill="url(#bg)"/>
+<circle cx="110" cy="470" r="250" fill="url(#warm)" stroke="#fff" stroke-opacity=".5" stroke-width="2"/>
+<circle cx="1080" cy="120" r="250" fill="url(#cool)" stroke="#fff" stroke-opacity=".6" stroke-width="2"/>
+<g fill="none" stroke="#fff" stroke-opacity=".28"><circle cx="1080" cy="120" r="213"/><circle cx="1080" cy="120" r="176"/><circle cx="1080" cy="120" r="139"/></g>
+<g fill="#fff" fill-opacity=".5"><circle cx="65" cy="258" r="8"/><circle cx="125" cy="245" r="6"/><circle cx="184" cy="257" r="10"/><circle cx="235" cy="292" r="7"/><circle cx="274" cy="337" r="9"/><circle cx="298" cy="398" r="6"/><circle cx="310" cy="458" r="8"/></g>
+<g font-family="Noto Sans CJK JP" fill="#2c2c2c" text-anchor="middle">
+<text x="600" y="138" font-size="28" letter-spacing="2">温浴・サウナの100問クイズ</text>
+<text x="600" y="214" font-size="22">私の称号は、</text>
+<text x="600" y="316" font-size="70" font-weight="700">ととのいの目利き</text>
+<text x="600" y="386" font-size="24">称号レベル 08 / 10</text>
+<text x="600" y="466" font-size="25">知るほど、次のお風呂がおもしろくなる。</text>
+<text x="600" y="530" font-size="19" letter-spacing="2">#酸冷交代浴 #湯けむりクイズ</text>
+</g></svg>
