@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
+<defs>
+<linearGradient id="bg" x2="1" y2="0.3"><stop stop-color="#edc4bd"/><stop offset=".5" stop-color="#f4e6df"/><stop offset="1" stop-color="#c9e7e2"/></linearGradient>
+<radialGradient id="warm" cx=".3" cy=".22" r=".8"><stop stop-color="#fff" stop-opacity=".85"/><stop offset=".5" stop-color="#f4dfda" stop-opacity=".2"/><stop offset=".85" stop-color="#db9b90" stop-opacity=".28"/><stop offset="1" stop-color="#fff" stop-opacity=".7"/></radialGradient>
+<radialGradient id="cool" cx=".3" cy=".2" r=".8"><stop stop-color="#fff" stop-opacity=".9"/><stop offset=".5" stop-color="#e1f3ef" stop-opacity=".14"/><stop offset=".85" stop-color="#8ebdb3" stop-opacity=".23"/><stop offset="1" stop-color="#fff" stop-opacity=".8"/></radialGradient>
+</defs>
+<image href="sanrei-water-original-20261030.png" width="1200" height="630" preserveAspectRatio="xMidYMid slice"/>
+<rect width="1200" height="630" fill="#fbf9f1" fill-opacity=".63"/>
+<image href="sanrei-wordmark.svg" x="150" y="180" width="900" height="222"/>
+<g font-family="Noto Sans CJK JP" fill="#594c39" text-anchor="middle">
+<text x="600" y="132" font-size="25" letter-spacing="5">炭酸泉 × 水風呂</text>
+
+<text x="600" y="436" font-size="32" font-weight="500">肌は、しゅむしゅむ。</text>
+<text x="600" y="482" font-size="32" font-weight="500">からだの奥は、じんわん。</text>
+<text x="600" y="575" font-size="19" letter-spacing="3">#酸冷交代浴のススメ</text>
+</g></svg>
