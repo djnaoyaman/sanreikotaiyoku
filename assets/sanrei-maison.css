@@ -1,0 +1,118 @@
+/* Sanrei maison — light, quiet surfaces; dark warm ink for readable content.
+   Gold is ornamental, never the sole cue for actions or status.
+   Existing copy, interactions and responsive structures are unchanged. */
+@font-face{font-family:'Sanrei Maison Serif';font-style:normal;font-weight:400;font-display:swap;src:url('sanrei-maison-serif.woff2') format('woff2')}
+:root{
+ --ink:#594c39;--paper:#fbf9f3;--cream:#f0eadc;--muted:#6d6253;--line:#c8bda9;
+ --warm:#775332;--cool:#ece9df;--coral:#ddcfb2;--rose:#d2c2a2;--mint:#e3e1d4;
+ --comfort-paper:#fbf9f3;--comfort-ink:#594c39;--comfort-accent:#735f3d;
+ --maison-gold:#a58a57;--maison-ink:#594c39;--maison-border:#aa9a81;--maison-white:#fffdf8
+}
+body{background:var(--paper);color:var(--ink)}
+::selection{background:#594c39;color:#fffdf8}
+body a:focus-visible,body button:focus-visible,body summary:focus-visible,body input:focus-visible,body select:focus-visible{outline:3px solid #735f3d;outline-offset:5px}
+body :is(.small,.note,.section-note,.hero-meta,.detail-limit,.storage-note,.share-status,.visual-note,.diagram-note,.interaction-hint,.manifesto-note){color:var(--muted)}
+body :is(h1,h2,.hero-catch,.manifesto-title,.closing-copy,.chapter-word){font-family:'Sanrei Maison Serif','Noto Serif CJK JP',serif;font-weight:400;letter-spacing:.035em}
+body h3{font-weight:600;letter-spacing:.01em}
+#top .hero-catch,#top .hero-catch b,#top .hero-first{font-family:'Sanrei Maison Serif',serif;font-weight:400;letter-spacing:.015em}
+body :is(.section-label,.latin-label,.eyebrow,.visual-overline,.category-label){letter-spacing:.12em;color:var(--muted)}
+body :is(.site-header,.ticker,dialog,.menu-inner,.share-dialog){background:var(--maison-white);color:var(--ink);border-color:var(--line)}
+body :is(.menu-button,.menu-close,.menu-inner nav b,.share-close,.action-primary,.button:not(.secondary),.bath-button[aria-pressed='true']){background:var(--ink);color:var(--maison-white);border-color:var(--ink)}
+body :is(.action-primary,.action-secondary,.button,.bath-button,.motion-toggle){border-radius:999px;font-weight:500}
+body :is(.action-secondary,.button.secondary,.motion-toggle,.hero-share,.places-swipe-button){background:transparent;color:var(--ink);border-color:#8b795c}
+body :is(.action-primary,.button:not(.secondary),.menu-button):hover{background:#6b5b42;color:#fffdf8}
+body :is(.action-secondary,.button.secondary,.bath-button:not([aria-pressed='true'])):hover{background:#eee6d6}
+body :is(.menu-inner nav a,.page-nav,.global-nav,.editorial-row,.section-label,.evidence,.rest-details,.gentle-detail,.curiosity-item,.concentration-note){border-color:var(--line)}
+body :is(.learn-hero,.profile-hero){background:linear-gradient(130deg,#f0eadc,transparent 80%)}
+body :is(.everyday,.places,.curiosity,.references,.try-section,.guide-page,.quiz-page){background:var(--paper);--cool:#ece9df}
+body .about-section{background:linear-gradient(135deg,#f0eadc,#fbf9f3 75%)}
+body :is(.hydration,.editorial-note,.editorial-policy,.resume-box,.takeaway,.bridge,.result-card){background:#f0eadc;color:var(--ink)}
+body :is(.guide-card,.supplement-card,.partner-card,.study,.course,.answer-option){background:var(--maison-white);color:var(--ink);border-color:var(--maison-border);box-shadow:none}
+body :is(.guide-card,.supplement-card,.partner-card,.study,.result-card){border-radius:8px}
+body :is(.guide-conclusion,.detail-limit,.limit,.try-care){background:#f4efe3;color:var(--ink);border-color:#8b795c}
+body :is(.guide-explanation,.detail-content,.section-copy,.evidence-body){line-height:2.05}
+body :is(.place,.hall-card,.water-plan,.water-plan>div+div,.quality-table,.quality-table th,.quality-table td,.facility-table th,.facility-table td){border-color:var(--line)}
+body :is(.place:hover,.place:focus-within){background:#f1ecdf;border-color:#8b795c}
+body .invitation{background:#e7dcc6;color:var(--ink)}
+body .invitation .action-primary{background:var(--ink);color:var(--maison-white);border-color:var(--ink)}
+body .invitation::before{border-color:#fffaf1;box-shadow:0 0 0 7vw #fffaf126,0 0 0 14vw #fffaf11a}
+body :is(footer,.site-footer){background:linear-gradient(110deg,#f0eadc,#fbf9f3 60%,#ede7d9);color:var(--ink);border-color:var(--line)}
+body .manifesto{background:#eee6d6;color:var(--ink)}
+body .manifesto-stage{background:linear-gradient(135deg,#e1d0aa,#f4eddf 48%,#e4e2d5)}
+body .manifesto-stage::before{background:radial-gradient(ellipse at 0 100%,#a58a57,transparent 65%);opacity:.16}
+body .manifesto-stage::after{background:radial-gradient(ellipse at 100% 0,#fffdf8,transparent 65%);opacity:.6}
+body :is(.manifesto-top,.manifesto-bottom){border-color:#aa9a81}
+body .manifesto-top::after,body .water-plan>div::after{background:#8b795c}
+body .manifesto-title{text-shadow:none;font-weight:400}
+/* The two sensations keep distinct textures and labels, not color alone. */
+#top .hero-visual{background:#fffaf0d9;box-shadow:inset 0 1px 0 #ffffff,0 18px 55px #594c3910}
+#top .sensation-token:first-child svg>circle{stroke:#8b795c}
+#top .sensation-token:last-child svg>circle{stroke:#7d806e}
+#sanrei-warm-glass stop:nth-child(1){stop-color:#fffdf8}
+#sanrei-warm-glass stop:nth-child(2){stop-color:#f8f1e2}
+#sanrei-warm-glass stop:nth-child(3){stop-color:#ddc99e}
+#sanrei-warm-glass stop:nth-child(4){stop-color:#ac905a}
+#sanrei-cool-glass stop:nth-child(1){stop-color:#fffdf8}
+#sanrei-cool-glass stop:nth-child(2){stop-color:#f3f2e9}
+#sanrei-cool-glass stop:nth-child(3){stop-color:#d6d8c8}
+#sanrei-cool-glass stop:nth-child(4){stop-color:#9a9e85}
+#top .token-bubbles{fill:#8d7448;stroke:#fffdf8}
+#top .token-bubbles circle:nth-child(3n){fill:#fffdf8;stroke:#8d7448}
+#top .token-ripples{stroke:#727763}
+#top :is(.pair-arrow,.visual-note){color:var(--muted)}
+body .experience-panel{box-shadow:inset 0 1px 0 #fffdf8,0 18px 45px #594c390b;border-radius:18px}
+body .experience-panel[data-mode='carbon']{background:linear-gradient(140deg,#fffdf8,#ede0c6);border-color:#b29b72}
+body .experience-panel[data-mode='cold']{background:linear-gradient(140deg,#fffdf8,#e5e5d8);border-color:#a0a18a}
+body .experience-panel .chapter-word{color:#735f3d}
+body .experience-panel[data-mode='cold'] .chapter-word{color:#636a53}
+body .body-label-ground{fill:#fffdf8}
+body :is(.body-label,.diagram-label,.skin-label text){fill:var(--ink)}
+body .body-outline{stroke:#8b795c}
+body .skin-label path{stroke:#8b795c}
+body .outer-particles{fill:#8d7448}
+body .inner-particles{fill:#727763}
+body .inner-waves circle{stroke:#727763}
+body .ritual-warm{background:radial-gradient(circle,#e5d3ad,transparent 72%)}
+body .ritual-warm i{background:#8d7448}
+body .ritual-cold{background:radial-gradient(circle,#e0e2d3,transparent 72%)}
+body .ritual-cold i{border-color:#727763}
+body .ritual-rest{background:radial-gradient(circle,#eee6d6,transparent 72%)}
+/* Quiz state remains explicit: text marks plus distinguishable borders. */
+body .course:has(input:checked){background:#eee6d6;border-color:#735f3d}
+body .answer-option.is-correct{background:#e9ecdf;border-color:#626d50}
+body .answer-option.is-chosen:not(.is-correct){background:#f1e5d5;border-color:#855b3c}
+body .answer-option:disabled{color:var(--ink);opacity:1}
+body .answer-key{border-color:var(--maison-border)}
+body .answer-option:not(:disabled):hover{background:#f4efe3;border-color:#735f3d}
+body :is(input,select){accent-color:#735f3d}
+body :is(.search-tools input,.search-tools select){background:var(--maison-white);color:var(--ink);border-color:#8b795c}
+body .back-to-top{background:#fffdf8;color:var(--ink);border-color:#8b795c}
+/* Share landing pages use the same quiet surface without changing their copy. */
+body .card{border-color:var(--line);border-radius:8px}
+@media(max-width:740px){
+ body h1,body h2{letter-spacing:.015em}
+ #top .hero-catch{font-size:clamp(2.75rem,12.5vw,5rem)}
+ body :is(.guide-card,.partner-card,.study){border-radius:6px}
+ body .site-header .brand-logo{max-width:100%}
+}
+@media(prefers-reduced-motion:reduce){body :is(.button,.action-primary,.action-secondary,.answer-option){transition:none}}
+@media print{body{background:#fff;color:#000}body :is(.hydration,.about-section,.manifesto-stage,.invitation,.guide-conclusion,.result-card,footer){background:#fff;color:#000;box-shadow:none}}
+/* Legacy fixed-color accents: keep every reading surface in the same palette. */
+body :is(.places,.practice,.science-section,.quality-section,.selection-note summary,.try-care a,.water-note a,.place){color:var(--ink)}
+body :is(.quality-table thead,.hall-meta>span:first-child,.official-link span){background:#e8deca;color:var(--ink)}
+body .closing-copy>a:hover{background:var(--ink);color:var(--maison-white)}
+body .share-dialog input{background:var(--maison-white);color:var(--ink);border-color:var(--maison-border)}
+body .open-circle{-webkit-text-stroke-color:#8b795c}
+body .cold-button .button-dot{background:#727763;border-color:#727763;box-shadow:inset 0 0 0 4px #fffdf8}
+body :is(.place,.hall-card){background:var(--maison-white)}
+body.guide-page,body.quiz-page{--cool:#ece9df}
+body :is(.everyday,.about-copy,.try-section,.hydration,.curiosity,.places-heading,.invitation,.learn-hero,.profile-heading) :is(h1,h2){font-family:'Sanrei Maison Serif',serif;font-weight:400;letter-spacing:.025em}
+body .invitation .latin-label,body .manifesto-note{color:var(--ink)}
+body progress{background:#e5ddcc;accent-color:#735f3d}
+body progress::-webkit-progress-bar{background:#e5ddcc}
+body progress::-webkit-progress-value{background:#735f3d}
+body progress::-moz-progress-bar{background:#735f3d}
+body .category-label::before{background:#a58a57}
+body .guide-card[data-category='water'] .category-label::before{background:#999779}
+body .guide-card[data-category='cold'] .category-label::before{background:#727763}
+body .guide-card[data-category='culture'] .category-label::before{background:#8b795c}

@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
+<rect width="1200" height="630" fill="#F7F4EA"/>
+<image href="../sanrei-water-original-20261030.png" width="1200" height="630" preserveAspectRatio="xMidYMid slice"/>
+<rect width="1200" height="630" fill="#F7F4EA" fill-opacity=".82"/>
+<image href="../sanrei-emblem.svg" x="1070" y="44" width="66" height="66"/>
+<path d="M540 418H660" fill="none" stroke="#A58A57" stroke-width="1"/>
+<g font-family="Noto Sans CJK JP" fill="#594c39" text-anchor="middle">
+<text id="line-01" x="600" y="138" font-size="28" letter-spacing="2">温浴・サウナの100問クイズ</text>
+<text id="line-02" x="600" y="214" font-size="22">私の称号は、</text>
+<text id="line-03" x="600" y="316" font-family="Noto Serif CJK JP" font-size="70" font-weight="500">湯けむり賢人</text>
+<text id="line-04" x="600" y="386" font-size="24">称号レベル 10 / 10</text>
+<text id="line-05" x="600" y="466" font-size="25">知るほど、次のお風呂がおもしろくなる。</text>
+<text id="line-06" x="600" y="530" font-size="19" letter-spacing="2">#酸冷交代浴 #湯けむりクイズ</text>
+</g></svg>
