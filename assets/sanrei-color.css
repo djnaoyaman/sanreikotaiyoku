@@ -156,3 +156,25 @@ footer a,footer a:visited{color:inherit}
 @media print{
  .wrap{width:100%;max-width:none}
 }
+
+/* User-selected water artwork. Keep all explanatory copy and motion controls. */
+#top.hero{background:#eee9da}
+#top .hero-water{position:absolute;inset:0;z-index:-2;pointer-events:none}
+#top .hero-water img{display:block;width:100%;height:100%;object-fit:cover;object-position:50% 50%}
+#top.hero::before{background:linear-gradient(90deg,#fbf9f1ed 0%,#fbf9f1b8 40%,#fbf9f122 75%);animation:none}
+#top .hero-visual{background:#fffaf0bf;backdrop-filter:blur(5px);box-shadow:inset 0 1px 0 #ffffffe0,0 25px 70px #6e55351a}
+@media(max-width:899px){
+ #top .hero-water img{object-position:38% 50%}
+ #top.hero::before{background:linear-gradient(180deg,#fbf9f1f0 0%,#fbf9f1c9 42%,#fbf9f152 80%)}
+}
+@media print{#top .hero-water{display:none}}
+
+/* Maison identity: outlined Japanese signature and opposing water-flow seal. */
+.brand-logo{display:block;width:clamp(200px,22vw,280px);max-width:100%;height:auto}
+.menu-brand .brand-logo{width:280px}
+.site-header .brand{display:inline-flex;align-items:center;min-height:44px}
+#top .hero-copy{color:#594c39}
+#top .hero-subject,#top .hero-definition{color:#594c39}
+#top .hero-places,.menu-button{background:#594c39;border-color:#594c39}
+@media(max-width:740px){.site-header .brand-logo{width:200px}.menu-brand .brand-logo{width:240px}}
+@media(max-width:380px){.site-header .brand-logo{width:172px}}
