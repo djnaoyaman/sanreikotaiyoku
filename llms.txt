@@ -1,0 +1,17 @@
+# 酸冷交代浴
+
+> 炭酸泉と水風呂を、交互に。
+
+炭酸泉と水風呂を交互に楽しむ入浴体験を紹介する日本語サイト。体感のことば、日常の楽しみ方、施設紹介、研究と出典を掲載しています。
+
+## ページ
+
+- [酸冷交代浴とは](https://djnaoyaman.github.io/sanreikotaiyoku/): 楽しみ方、注意点、全国10選、研究と出典。
+- [お湯とサウナの、気になる話。](https://djnaoyaman.github.io/sanreikotaiyoku/guide.html): 温浴とサウナについての研究紹介。
+- [温浴・サウナの100問クイズ](https://djnaoyaman.github.io/sanreikotaiyoku/quiz.html): 解説と出典付きのクイズ。
+- [湯気文吾 — このサイトについて](https://djnaoyaman.github.io/sanreikotaiyoku/profile.html): 書き手とサイトについて。
+- [サイトマップ](https://djnaoyaman.github.io/sanreikotaiyoku/sitemap.xml): 公開ページの一覧。
+
+## 読み取りの範囲
+
+各ページの体験談、研究紹介、注意点、出典を併せて参照してください。個別研究の結果を、酸冷交代浴全体の健康効果や、すべての人に共通する感触の保証として扱っていません。

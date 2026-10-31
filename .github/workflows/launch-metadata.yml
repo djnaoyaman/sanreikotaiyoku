@@ -1,0 +1,30 @@
+name: Launch metadata checks
+on:
+  pull_request:
+    paths: ['404.html', 'llms.txt', 'tests/launch-metadata.py', 'tests/launch-metadata-browser.cjs', '.github/workflows/launch-metadata.yml']
+  push:
+    branches: [main]
+    paths: ['404.html', 'llms.txt', 'tests/launch-metadata.py', 'tests/launch-metadata-browser.cjs', '.github/workflows/launch-metadata.yml']
+permissions:
+  contents: read
+jobs:
+  launch-metadata:
+    runs-on: ubuntu-latest
+    timeout-minutes: 8
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - run: python3 tests/launch-metadata.py
+      - run: npm install --no-save --package-lock=false playwright@1.56.1
+      - run: npx playwright install --with-deps chromium
+      - run: node tests/launch-metadata-browser.cjs
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: launch-metadata-review
+          path: test-artifacts/launch-metadata/
+          retention-days: 7
