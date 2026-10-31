@@ -1,0 +1,183 @@
+{
+  "schema": 1,
+  "timezone": "Asia/Tokyo",
+  "pages": {
+    "guide.html": {
+      "modified": "2026-10-31T05:05:37+09:00",
+      "source_sha256": "d915ac892d4a6a68aeca407dca3d553e91468a2ad016ac55dd227844b6d1e9c8",
+      "dependencies": {
+        "apple-touch-icon.png": "befc070c57720d630290cce54ad37689a5344b69",
+        "assets/ogp-sanrei-20261030.png": "d15e3f05e9ec173288d77e307af2bb07b935175c",
+        "assets/sanrei-color.css": "013e25e25c1a67b602a689e7d5a34bef0930b4f3",
+        "assets/sanrei-inter.woff2": "382f04258af23928ce1959100a8128d005066e1b",
+        "assets/sanrei-maison-serif.woff2": "3f86422d6fef4475b78f23bb87d00457d90a39d6",
+        "assets/sanrei-maison.css": "e9638578ffa460617ec4a673fea074f91903bb33",
+        "assets/sanrei-noto-catch.woff2": "bfd3ff2d2c8ec833dbf97b64dbad57bfadaa9d4e",
+        "assets/sanrei-noto-first.woff2": "406cab19bb94d5279a9e475ce4a432a41a2c6fce",
+        "assets/sanrei-noto-guide.woff2": "c40cf206097e8b07c96d459e11cde55790ab01e0",
+        "assets/sanrei-wordmark-compact.svg": "44a4014392ee622d83c16dbae7344a6be8589ea7",
+        "favicon.ico": "4309632757d9feef55f772405fb8ece52ddc095d",
+        "icon.svg": "b1b3a828150784dab6b8cfa2fce8b2307c93ae5e"
+      }
+    },
+    "index.html": {
+      "modified": "2026-10-31T05:05:37+09:00",
+      "source_sha256": "2bf93fe60960dd4dace3cfe5bd6dc016b00ee3afdfd79ae14c3072859a6788c4",
+      "dependencies": {
+        "apple-touch-icon.png": "befc070c57720d630290cce54ad37689a5344b69",
+        "assets/ogp-sanrei-20261030.png": "d15e3f05e9ec173288d77e307af2bb07b935175c",
+        "assets/sanrei-color.css": "013e25e25c1a67b602a689e7d5a34bef0930b4f3",
+        "assets/sanrei-inter.woff2": "382f04258af23928ce1959100a8128d005066e1b",
+        "assets/sanrei-maison-serif.woff2": "3f86422d6fef4475b78f23bb87d00457d90a39d6",
+        "assets/sanrei-maison.css": "e9638578ffa460617ec4a673fea074f91903bb33",
+        "assets/sanrei-noto-catch.woff2": "bfd3ff2d2c8ec833dbf97b64dbad57bfadaa9d4e",
+        "assets/sanrei-noto-first.woff2": "406cab19bb94d5279a9e475ce4a432a41a2c6fce",
+        "assets/sanrei-noto-index.woff2": "705ea0b34e33eb0883832472cbf8d84a0bc1725f",
+        "assets/sanrei-water-1456-20261030.webp": "81fd6c1228abb8f8ca0493db332bc6bf330b9f05",
+        "assets/sanrei-wordmark-compact.svg": "44a4014392ee622d83c16dbae7344a6be8589ea7",
+        "favicon-32.png": "0381469c75cf95cba82e891dd153c0db70004189",
+        "favicon-96.png": "b3143ab1292a1ed6f783f82d788feb97b7dd7aa1",
+        "favicon.ico": "4309632757d9feef55f772405fb8ece52ddc095d",
+        "icon.svg": "b1b3a828150784dab6b8cfa2fce8b2307c93ae5e",
+        "safari-pinned-tab.svg": "b6482f2581b21065bc57cefa9c1ecf175a75176f"
+      }
+    },
+    "profile.html": {
+      "modified": "2026-10-31T05:05:37+09:00",
+      "source_sha256": "44e316fc21f6e680ca5aa089517242f832b25447427dfc9eb8ada12897415baa",
+      "dependencies": {
+        "apple-touch-icon.png": "befc070c57720d630290cce54ad37689a5344b69",
+        "assets/ogp-sanrei-20261030.png": "d15e3f05e9ec173288d77e307af2bb07b935175c",
+        "assets/sanrei-color.css": "013e25e25c1a67b602a689e7d5a34bef0930b4f3",
+        "assets/sanrei-inter.woff2": "382f04258af23928ce1959100a8128d005066e1b",
+        "assets/sanrei-maison-serif.woff2": "3f86422d6fef4475b78f23bb87d00457d90a39d6",
+        "assets/sanrei-maison.css": "e9638578ffa460617ec4a673fea074f91903bb33",
+        "assets/sanrei-noto-catch.woff2": "bfd3ff2d2c8ec833dbf97b64dbad57bfadaa9d4e",
+        "assets/sanrei-noto-first.woff2": "406cab19bb94d5279a9e475ce4a432a41a2c6fce",
+        "assets/sanrei-noto-profile.woff2": "de517e3ee88a4c9813ea9eab571ffa4c2ddd6bd0",
+        "assets/sanrei-wordmark-compact.svg": "44a4014392ee622d83c16dbae7344a6be8589ea7",
+        "assets/yuge-bungo-dj.webp": "a52c9189c65927499e56be204a82b698f711a030",
+        "favicon.ico": "4309632757d9feef55f772405fb8ece52ddc095d",
+        "icon.svg": "b1b3a828150784dab6b8cfa2fce8b2307c93ae5e"
+      }
+    },
+    "quiz-results/01.html": {
+      "modified": "2026-10-31T05:05:37+09:00",
+      "source_sha256": "a9a46731e8b6b75fa10a79e4943b982ac2d1701a27c3738dd58af59992649d63",
+      "dependencies": {
+        "assets/quiz-results/rank-01-20261030.png": "933cc0c4b4861d0b3d11d90d6c23a80d5db01a8d",
+        "assets/sanrei-maison-serif.woff2": "3f86422d6fef4475b78f23bb87d00457d90a39d6",
+        "assets/sanrei-maison.css": "e9638578ffa460617ec4a673fea074f91903bb33",
+        "favicon.ico": "4309632757d9feef55f772405fb8ece52ddc095d"
+      }
+    },
+    "quiz-results/02.html": {
+      "modified": "2026-10-31T05:05:37+09:00",
+      "source_sha256": "749070754244e1944e07f4b9caaee440be5696474e8e20e924f4600979c8f956",
+      "dependencies": {
+        "assets/quiz-results/rank-02-20261030.png": "21240677111968585b4d1aace025e1531be39c61",
+        "assets/sanrei-maison-serif.woff2": "3f86422d6fef4475b78f23bb87d00457d90a39d6",
+        "assets/sanrei-maison.css": "e9638578ffa460617ec4a673fea074f91903bb33",
+        "favicon.ico": "4309632757d9feef55f772405fb8ece52ddc095d"
+      }
+    },
+    "quiz-results/03.html": {
+      "modified": "2026-10-31T05:05:37+09:00",
+      "source_sha256": "ab75ffe0e477d5d261e84d7ba07b656620d187905d5bb642cb9aa917639df6bb",
+      "dependencies": {
+        "assets/quiz-results/rank-03-20261030.png": "c1accb014afb29f9024eb746dd76bf271ebc679a",
+        "assets/sanrei-maison-serif.woff2": "3f86422d6fef4475b78f23bb87d00457d90a39d6",
+        "assets/sanrei-maison.css": "e9638578ffa460617ec4a673fea074f91903bb33",
+        "favicon.ico": "4309632757d9feef55f772405fb8ece52ddc095d"
+      }
+    },
+    "quiz-results/04.html": {
+      "modified": "2026-10-31T05:05:37+09:00",
+      "source_sha256": "299015067154bbfac0fa21a1da4e9027b6eeb47f97fce0a0111c164bb8df6286",
+      "dependencies": {
+        "assets/quiz-results/rank-04-20261030.png": "0c243a9ada6c00e6bfddd124a98631cdbf4f8d08",
+        "assets/sanrei-maison-serif.woff2": "3f86422d6fef4475b78f23bb87d00457d90a39d6",
+        "assets/sanrei-maison.css": "e9638578ffa460617ec4a673fea074f91903bb33",
+        "favicon.ico": "4309632757d9feef55f772405fb8ece52ddc095d"
+      }
+    },
+    "quiz-results/05.html": {
+      "modified": "2026-10-31T05:05:37+09:00",
+      "source_sha256": "7bc478e6093e28f2a388a1feb7f7a6f88f6bae1ea12413a0238019cf0a13fa2d",
+      "dependencies": {
+        "assets/quiz-results/rank-05-20261030.png": "628e91e5183b771788f7ccbc5aa7296ad3be7a59",
+        "assets/sanrei-maison-serif.woff2": "3f86422d6fef4475b78f23bb87d00457d90a39d6",
+        "assets/sanrei-maison.css": "e9638578ffa460617ec4a673fea074f91903bb33",
+        "favicon.ico": "4309632757d9feef55f772405fb8ece52ddc095d"
+      }
+    },
+    "quiz-results/06.html": {
+      "modified": "2026-10-31T05:05:37+09:00",
+      "source_sha256": "152b74ab63d72dfbcbbf58160ed700de83313c617b76db3dc7732ea3e204e76c",
+      "dependencies": {
+        "assets/quiz-results/rank-06-20261030.png": "ca46af9b01d5f5e2d059133e24a5e4678735bb13",
+        "assets/sanrei-maison-serif.woff2": "3f86422d6fef4475b78f23bb87d00457d90a39d6",
+        "assets/sanrei-maison.css": "e9638578ffa460617ec4a673fea074f91903bb33",
+        "favicon.ico": "4309632757d9feef55f772405fb8ece52ddc095d"
+      }
+    },
+    "quiz-results/07.html": {
+      "modified": "2026-10-31T05:05:37+09:00",
+      "source_sha256": "2e480e7dc5eace33da6e3b100f4ef5cc0d7f6ee1a6e0fe526efa36139d182b2b",
+      "dependencies": {
+        "assets/quiz-results/rank-07-20261030.png": "13889e6b63bf4e116a46dff92fc1e78c82226d4c",
+        "assets/sanrei-maison-serif.woff2": "3f86422d6fef4475b78f23bb87d00457d90a39d6",
+        "assets/sanrei-maison.css": "e9638578ffa460617ec4a673fea074f91903bb33",
+        "favicon.ico": "4309632757d9feef55f772405fb8ece52ddc095d"
+      }
+    },
+    "quiz-results/08.html": {
+      "modified": "2026-10-31T05:05:37+09:00",
+      "source_sha256": "62418c28afb1c7802911ad93e33c620dec5ba726aed8af060a5aa05e4a98008b",
+      "dependencies": {
+        "assets/quiz-results/rank-08-20261030.png": "329e835089ffed854300a286ce9b77f7773b3f5c",
+        "assets/sanrei-maison-serif.woff2": "3f86422d6fef4475b78f23bb87d00457d90a39d6",
+        "assets/sanrei-maison.css": "e9638578ffa460617ec4a673fea074f91903bb33",
+        "favicon.ico": "4309632757d9feef55f772405fb8ece52ddc095d"
+      }
+    },
+    "quiz-results/09.html": {
+      "modified": "2026-10-31T05:05:37+09:00",
+      "source_sha256": "08b0a1c4173e897ae27c37467b75d6e076517ee2e7481ce4f6373b0d18b8b1c4",
+      "dependencies": {
+        "assets/quiz-results/rank-09-20261030.png": "2a8e7a88cb0fa366927a14171104402174f5f0eb",
+        "assets/sanrei-maison-serif.woff2": "3f86422d6fef4475b78f23bb87d00457d90a39d6",
+        "assets/sanrei-maison.css": "e9638578ffa460617ec4a673fea074f91903bb33",
+        "favicon.ico": "4309632757d9feef55f772405fb8ece52ddc095d"
+      }
+    },
+    "quiz-results/10.html": {
+      "modified": "2026-10-31T05:05:37+09:00",
+      "source_sha256": "ccccad52f46dfca0b2dc2ac25cd630823d9a6c8bd6ceb2973e29ee83d3db52d9",
+      "dependencies": {
+        "assets/quiz-results/rank-10-20261030.png": "9856969dd09909d3701344a50fb27fab68fadc9f",
+        "assets/sanrei-maison-serif.woff2": "3f86422d6fef4475b78f23bb87d00457d90a39d6",
+        "assets/sanrei-maison.css": "e9638578ffa460617ec4a673fea074f91903bb33",
+        "favicon.ico": "4309632757d9feef55f772405fb8ece52ddc095d"
+      }
+    },
+    "quiz.html": {
+      "modified": "2026-10-31T05:05:37+09:00",
+      "source_sha256": "21aefaf13d42c456da2b0fd2757a5cc33980a0c55ba478d9488cbd005af80531",
+      "dependencies": {
+        "apple-touch-icon.png": "befc070c57720d630290cce54ad37689a5344b69",
+        "assets/ogp-sanrei-20261030.png": "d15e3f05e9ec173288d77e307af2bb07b935175c",
+        "assets/sanrei-color.css": "013e25e25c1a67b602a689e7d5a34bef0930b4f3",
+        "assets/sanrei-inter.woff2": "382f04258af23928ce1959100a8128d005066e1b",
+        "assets/sanrei-maison-serif.woff2": "3f86422d6fef4475b78f23bb87d00457d90a39d6",
+        "assets/sanrei-maison.css": "e9638578ffa460617ec4a673fea074f91903bb33",
+        "assets/sanrei-noto-catch.woff2": "bfd3ff2d2c8ec833dbf97b64dbad57bfadaa9d4e",
+        "assets/sanrei-noto-first.woff2": "406cab19bb94d5279a9e475ce4a432a41a2c6fce",
+        "assets/sanrei-noto-quiz.woff2": "810933f000a9438abf39154019fb52bd3d3bb2d4",
+        "assets/sanrei-wordmark-compact.svg": "44a4014392ee622d83c16dbae7344a6be8589ea7",
+        "favicon.ico": "4309632757d9feef55f772405fb8ece52ddc095d",
+        "icon.svg": "b1b3a828150784dab6b8cfa2fce8b2307c93ae5e"
+      }
+    }
+  }
+}
