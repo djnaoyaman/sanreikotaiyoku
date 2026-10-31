@@ -35,7 +35,10 @@ fs.mkdirSync(output, { recursive: true });
     assert.equal(await page.locator(':focus').textContent(), 'トップページへ戻る');
     assert.equal(await page.locator(':focus').evaluate(el => getComputedStyle(el).outlineWidth), '3px');
     await page.screenshot({ path: path.join(output, `404-${width}.png`), fullPage: true });
-    await page.keyboard.press('Enter');
+    await Promise.all([
+      page.waitForURL('http://127.0.0.1:8765/sanreikotaiyoku/'),
+      page.keyboard.press('Enter')
+    ]);
     assert.equal(page.url(), 'http://127.0.0.1:8765/sanreikotaiyoku/');
     await page.goBack();
     assert.equal(await page.locator('h1').textContent(), 'ページが見つかりません。');
