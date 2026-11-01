@@ -23,6 +23,18 @@ const assert = require('node:assert/strict');
    assert.ok(await ripple.evaluate(el=>el===document.activeElement),'RIPPLE link keyboard focus');
    assert.equal(await page.evaluate(()=>document.documentElement.scrollWidth>innerWidth+1),false,'about no overflow');
    await page.screenshot({path:`test-artifacts/profile/ripple-${width}.png`});
+   const indexAuthor=page.locator('footer a[href="profile.html"]');
+   assert.match(await indexAuthor.innerText(),/作者・湯気文吾について/);
+   for (const route of ['guide.html','quiz.html']) {
+    await page.goto('http://127.0.0.1:8765/'+route, {waitUntil:'networkidle'});
+    const author=page.locator('header a[href="profile.html"]');
+    assert.equal(await author.innerText(),'作者について');
+    assert.ok(await author.isVisible(),'author navigation visible');
+    await author.focus();
+    assert.ok(await author.evaluate(el=>el===document.activeElement),'author keyboard focus');
+    assert.equal(await page.evaluate(()=>document.documentElement.scrollWidth>innerWidth+1),false,route+' no overflow');
+    await page.screenshot({path:`test-artifacts/profile/${route}-${width}.png`});
+   }
    await page.goto('http://127.0.0.1:8765/profile.html', {waitUntil:'networkidle'});
    await page.evaluate(async()=>{
     for(let y=0;y<document.body.scrollHeight;y+=500){scrollTo(0,y);await new Promise(r=>setTimeout(r,50));}
