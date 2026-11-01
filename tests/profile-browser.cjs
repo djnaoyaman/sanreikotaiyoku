@@ -13,6 +13,16 @@ const assert = require('node:assert/strict');
     return u.hostname === '127.0.0.1' ? route.continue() : route.abort();
    });
    const errors=[]; page.on('pageerror', e=>errors.push(e.message));
+   await page.goto('http://127.0.0.1:8765/#about', {waitUntil:'networkidle'});
+   const ripple=page.locator('a[href="https://djnaoyaman.github.io/1minutes/sensory.html#ripple"]');
+   assert.equal(await ripple.count(),1,'one contextual RIPPLE link');
+   await ripple.scrollIntoViewIfNeeded();
+   assert.ok(await ripple.isVisible(),'RIPPLE link visible');
+   assert.match(await ripple.locator('..').innerText(),/入浴中ではなく、水辺を離れた場所/);
+   await ripple.focus();
+   assert.ok(await ripple.evaluate(el=>el===document.activeElement),'RIPPLE link keyboard focus');
+   assert.equal(await page.evaluate(()=>document.documentElement.scrollWidth>innerWidth+1),false,'about no overflow');
+   await page.screenshot({path:`test-artifacts/profile/ripple-${width}.png`});
    await page.goto('http://127.0.0.1:8765/profile.html', {waitUntil:'networkidle'});
    await page.evaluate(async()=>{
     for(let y=0;y<document.body.scrollHeight;y+=500){scrollTo(0,y);await new Promise(r=>setTimeout(r,50));}
