@@ -23,10 +23,12 @@ const assert = require('node:assert/strict');
    assert.ok(await ripple.evaluate(el=>el===document.activeElement),'RIPPLE link keyboard focus');
    assert.equal(await page.evaluate(()=>document.documentElement.scrollWidth>innerWidth+1),false,'about no overflow');
    await page.screenshot({path:`test-artifacts/profile/ripple-${width}.png`});
+   assert.equal(await page.locator('footer time').getAttribute('datetime'),'2026-11-02');
    const indexAuthor=page.locator('footer a[href="profile.html"]');
    assert.match(await indexAuthor.innerText(),/作者・湯気文吾について/);
    for (const route of ['guide.html','quiz.html']) {
     await page.goto('http://127.0.0.1:8765/'+route, {waitUntil:'networkidle'});
+    assert.equal(await page.locator('footer time').getAttribute('datetime'),'2026-11-02');
     const author=page.locator('header a[href="profile.html"]');
     assert.equal(await author.innerText(),'作者について');
     assert.ok(await author.isVisible(),'author navigation visible');
