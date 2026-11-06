@@ -46,6 +46,38 @@ const assert = require('node:assert/strict');
    assert.ok(firstBox && secondBox && secondBox.y>=firstBox.y+firstBox.height+23,'partner cards separated');
    assert.equal(await page.evaluate(()=>document.documentElement.scrollWidth>innerWidth+1),false,'partners no horizontal overflow');
    await page.screenshot({path:`test-artifacts/profile/partners-${width}.png`});
+   const heading=page.locator('#sanrei-title');
+   await page.emulateMedia({reducedMotion:'reduce'});
+   await page.evaluate(async()=>{await document.fonts.load('400 100px "Sanrei Maison Serif"','#酸冷交代浴');await document.fonts.ready;});
+   await heading.scrollIntoViewIfNeeded();
+   const headingStyle=await heading.evaluate(el=>{
+    const parent=getComputedStyle(el),hash=getComputedStyle(el.querySelector('.manifesto-hash'));
+    return {family:parent.fontFamily,weight:parent.fontWeight,spacing:parent.letterSpacing,hashFamily:hash.fontFamily,hashWeight:hash.fontWeight,hashSpacing:hash.letterSpacing};
+   });
+   assert.equal(headingStyle.hashFamily,headingStyle.family,'hash uses the heading font family');
+   assert.equal(headingStyle.hashWeight,headingStyle.weight,'hash uses the heading weight');
+   assert.equal(headingStyle.hashSpacing,headingStyle.spacing,'hash uses the heading letter spacing');
+   assert.equal(headingStyle.hashWeight,'400','hash is not the old heavy weight');
+   const cdp=await page.context().newCDPSession(page);
+   await cdp.send('DOM.enable');await cdp.send('CSS.enable');
+   const {root}=await cdp.send('DOM.getDocument');
+   const actualFonts=[];
+   for(const selector of ['.manifesto-hash','.manifesto-letter:not(.manifesto-hash)']) {
+    const {nodeId}=await cdp.send('DOM.querySelector',{nodeId:root.nodeId,selector});
+    const {fonts}=await cdp.send('CSS.getPlatformFontsForNode',{nodeId});
+    assert.equal(fonts.length,1,'one rendered font per manifesto glyph');
+    assert.equal(fonts[0].isCustomFont,true,'manifesto glyph uses the supplied font');
+    actualFonts.push(fonts[0].familyName);
+   }
+   assert.equal(actualFonts[0],actualFonts[1],'hash and kanji actually render in the same font');
+   await cdp.detach();
+   const headingBox=await heading.boundingBox();
+   assert.ok(headingBox && headingBox.x>=-1 && headingBox.x+headingBox.width<=width+1,'manifesto fits viewport');
+   const glyphBoxes=await heading.locator('.manifesto-letter').evaluateAll(els=>els.map(el=>{const r=el.getBoundingClientRect();return {left:r.left,right:r.right};}));
+   assert.ok(glyphBoxes.every(r=>r.left>=-1&&r.right<=width+1),'all heading glyphs fit viewport');
+   assert.equal(await page.evaluate(()=>document.documentElement.scrollWidth>innerWidth+1),false,'manifesto no horizontal overflow');
+   await page.screenshot({path:`test-artifacts/profile/manifesto-font-${width}.png`});
+   await page.emulateMedia({reducedMotion:null});
    const indexAuthor=page.locator('footer a[href="profile.html"]');
    assert.match(await indexAuthor.innerText(),/作者・湯気文吾について/);
    for (const route of ['guide.html','quiz.html']) {
